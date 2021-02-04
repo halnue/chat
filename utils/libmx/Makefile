@@ -90,8 +90,7 @@ SRC	= 	    mx_printchar.c \
 			mx_pop_back.c \
 			mx_list_size.c \
 			mx_del_list.c \
-			mx_sort_list.c \
-			mx_concatenation
+			mx_sort_list.c
 			
 SRCS	=	$(addprefix $(SRCD)/, $(SRC))
 OBJS	=	$(addprefix $(OBJD)/, $(SRC:%.c=%.o))

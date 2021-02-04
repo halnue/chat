@@ -171,11 +171,10 @@
 //  }
 //
 //  /* Listen */
-//  if (listen(listenfd, 10) < 0) {
+//  if (listen(listenfd, 100) < 0) {
 //    perror("ERROR: Socket listening failed");
 //    return EXIT_FAILURE;
 //	}
-//
 //	printf("=== WELCOME TO THE CHATROOM ===\n");
 //
 //	while(1){
@@ -207,3 +206,4 @@
 //
 //	return EXIT_SUCCESS;
 //}
+

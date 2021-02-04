@@ -14,10 +14,4 @@
 sqlite3 *openDB(char *nameDB);
 int dbRequest(sqlite3* db, const char *sql);
 
-char *insertUsersSQL(int id,char *login,char *password){
-    char* buff = (char*)malloc(sizeof(char)*121);
-    mx_strcpy(buff,"INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES (");
-    sprintf(buff, "%d %s %c %s %c", id, login, ',', password, ')');
-    return buff;
-}
 #endif //OWN_UCHAT_MDB_H

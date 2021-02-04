@@ -1,22 +1,24 @@
 #include <stdio.h>
 #include <zconf.h>
-#include "../inc/mDb.h"
+#include "../inc/api_db.h"
 
 
-void mx_printint(int num);
-void mx_printchar(char c);
-//static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
-//    int i;
-//    *(int *)NotUsed = 0;
-//    for(i = 0; i<argc; i++) {
-//        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-//    }
-//    printf("\n");
-//    return 0;
+//char *insertUsersSQL(int id,char *login,char *password){
+//    char *insertion = "INSERT or REPLACE INTO tes(ID, LOGIN) VALUES ( ";
+//    char *res = mx_strjoin(insertion, mx_itoa(id));
+//    char *a = mx_strjoin(res, " , '");
+//    char *b = mx_strjoin(a, login);
+//    char *c = mx_strjoin(b, "' )");
+////    char *d = mx_strjoin(c, password);
+////    char *e = mx_strjoin(d, "')");
+//    return c;
+////    INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES (-1,'admin','arr')
 //}
-
-
-
+char *insertUsersSQL(int id,char *login,char *password){
+    char* buff = (char*)malloc(sizeof(char)*131);
+    sprintf(buff, "%s %d %s %s %s %s %s","INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES (", id, ",'", login, "','", password, "')");
+    return buff;
+}
 
 int main() {
     sqlite3 *db;
@@ -31,10 +33,15 @@ int main() {
           "    login VARCHAR(20),"
           "    password VARCHAR(40)"
           ")";
-
-
-
     int rc = dbRequest(db,sql);
+    if (rc == false)
+        return 23;
+
+sql = insertUsersSQL(3,"qwerty","12");
+mx_printstr(sql);
+mx_printchar('\n');
+
+     rc = dbRequest(db,sql);
     if (rc == false)
         return 23;
 

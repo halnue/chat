@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/mburenko/Documents/own_uchat/client/src/client.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/client.c.o"
-  "/Users/mburenko/Documents/own_uchat/server.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/server.c.o"
-  "/Users/mburenko/Documents/own_uchat/server/src/dbRequest.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/server/src/dbRequest.c.o"
-  "/Users/mburenko/Documents/own_uchat/server/src/main.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/server/src/main.c.o"
-  "/Users/mburenko/Documents/own_uchat/server/src/openDB.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/server/src/openDB.c.o"
+  "/Users/vloza/Desktop/chatb/client/src/client.c" "/Users/vloza/Desktop/chatb/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/client.c.o"
+  "/Users/vloza/Desktop/chatb/server.c" "/Users/vloza/Desktop/chatb/cmake-build-debug/CMakeFiles/own_uchat.dir/server.c.o"
+  "/Users/vloza/Desktop/chatb/server/src/dbRequest.c" "/Users/vloza/Desktop/chatb/cmake-build-debug/CMakeFiles/own_uchat.dir/server/src/dbRequest.c.o"
+  "/Users/vloza/Desktop/chatb/server/src/main.c" "/Users/vloza/Desktop/chatb/cmake-build-debug/CMakeFiles/own_uchat.dir/server/src/main.c.o"
+  "/Users/vloza/Desktop/chatb/server/src/openDB.c" "/Users/vloza/Desktop/chatb/cmake-build-debug/CMakeFiles/own_uchat.dir/server/src/openDB.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
