@@ -1,7 +1,7 @@
 //
 // Created by Mykhailo Burenko on 2/4/21.
 //
-#include "../inc/mDb.h"
+#include "../inc/api_db.h"
 
 
 static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
