@@ -3,4 +3,4 @@ project(own_uchat C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(own_uchat main.c server/inc/server.h server/src/server.c client/inc/client.h client/src/client.c)
+add_executable(own_uchat server/src/main.c server/inc/server.h server.c client/inc/client.h client/src/client.c server/inc/mDb.h server/src/openDB.c server/src/dbRequest.c utils/api.h)

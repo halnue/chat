@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="users" type="DatabaseScript" editBeforeRun="true" singleton="false">
+  <configuration default="false" name="users" type="DatabaseScript" activateToolWindowBeforeRun="false" singleton="false">
     <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/b1146a1a-9d56-4cc2-94ee-d9797afb4ff8/console.sql" />
     <script-mode>FILE</script-mode>
     <method v="2" />

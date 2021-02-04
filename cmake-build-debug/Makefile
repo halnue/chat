@@ -170,59 +170,113 @@ client/src/client.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/client.c.s
 .PHONY : client/src/client.c.s
 
-main.o: main.c.o
+server.o: server.c.o
 
-.PHONY : main.o
-
-# target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/main.c.o
-.PHONY : main.c.o
-
-main.i: main.c.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/main.c.s
-.PHONY : main.c.s
-
-server/src/server.o: server/src/server.c.o
-
-.PHONY : server/src/server.o
+.PHONY : server.o
 
 # target to build an object file
-server/src/server.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/server.c.o
-.PHONY : server/src/server.c.o
+server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server.c.o
+.PHONY : server.c.o
 
-server/src/server.i: server/src/server.c.i
+server.i: server.c.i
 
-.PHONY : server/src/server.i
+.PHONY : server.i
 
 # target to preprocess a source file
-server/src/server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/server.c.i
-.PHONY : server/src/server.c.i
+server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server.c.i
+.PHONY : server.c.i
 
-server/src/server.s: server/src/server.c.s
+server.s: server.c.s
 
-.PHONY : server/src/server.s
+.PHONY : server.s
 
 # target to generate assembly for a file
-server/src/server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/server.c.s
-.PHONY : server/src/server.c.s
+server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server.c.s
+.PHONY : server.c.s
+
+server/src/dbRequest.o: server/src/dbRequest.c.o
+
+.PHONY : server/src/dbRequest.o
+
+# target to build an object file
+server/src/dbRequest.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/dbRequest.c.o
+.PHONY : server/src/dbRequest.c.o
+
+server/src/dbRequest.i: server/src/dbRequest.c.i
+
+.PHONY : server/src/dbRequest.i
+
+# target to preprocess a source file
+server/src/dbRequest.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/dbRequest.c.i
+.PHONY : server/src/dbRequest.c.i
+
+server/src/dbRequest.s: server/src/dbRequest.c.s
+
+.PHONY : server/src/dbRequest.s
+
+# target to generate assembly for a file
+server/src/dbRequest.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/dbRequest.c.s
+.PHONY : server/src/dbRequest.c.s
+
+server/src/main.o: server/src/main.c.o
+
+.PHONY : server/src/main.o
+
+# target to build an object file
+server/src/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/main.c.o
+.PHONY : server/src/main.c.o
+
+server/src/main.i: server/src/main.c.i
+
+.PHONY : server/src/main.i
+
+# target to preprocess a source file
+server/src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/main.c.i
+.PHONY : server/src/main.c.i
+
+server/src/main.s: server/src/main.c.s
+
+.PHONY : server/src/main.s
+
+# target to generate assembly for a file
+server/src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/main.c.s
+.PHONY : server/src/main.c.s
+
+server/src/openDB.o: server/src/openDB.c.o
+
+.PHONY : server/src/openDB.o
+
+# target to build an object file
+server/src/openDB.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/openDB.c.o
+.PHONY : server/src/openDB.c.o
+
+server/src/openDB.i: server/src/openDB.c.i
+
+.PHONY : server/src/openDB.i
+
+# target to preprocess a source file
+server/src/openDB.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/openDB.c.i
+.PHONY : server/src/openDB.c.i
+
+server/src/openDB.s: server/src/openDB.c.s
+
+.PHONY : server/src/openDB.s
+
+# target to generate assembly for a file
+server/src/openDB.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/openDB.c.s
+.PHONY : server/src/openDB.c.s
 
 # Help Target
 help:
@@ -236,12 +290,18 @@ help:
 	@echo "... client/src/client.o"
 	@echo "... client/src/client.i"
 	@echo "... client/src/client.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... server/src/server.o"
-	@echo "... server/src/server.i"
-	@echo "... server/src/server.s"
+	@echo "... server.o"
+	@echo "... server.i"
+	@echo "... server.s"
+	@echo "... server/src/dbRequest.o"
+	@echo "... server/src/dbRequest.i"
+	@echo "... server/src/dbRequest.s"
+	@echo "... server/src/main.o"
+	@echo "... server/src/main.i"
+	@echo "... server/src/main.s"
+	@echo "... server/src/openDB.o"
+	@echo "... server/src/openDB.i"
+	@echo "... server/src/openDB.s"
 .PHONY : help
 
 
