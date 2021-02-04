@@ -84,13 +84,25 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/client.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/main.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/inc/mDb.h">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/inc/server.h">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/server.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/dbRequest.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/main.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/openDB.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/api.h">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/CMakeLists.txt">
