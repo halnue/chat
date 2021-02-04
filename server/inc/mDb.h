@@ -16,7 +16,7 @@
 int dbRequest(sqlite3* db, const char *sql);
 
 char *insertUsersSQL(int id,char *login,char *password){
-    return "INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES ("id","login","password")";
+    return "INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES ("mx_itoa(id)","login","password")";
 }
 
 char *update
