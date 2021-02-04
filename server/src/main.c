@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <zconf.h>
 #include "../inc/api_db.h"
 
 
@@ -14,37 +12,49 @@
 //    return c;
 ////    INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES (-1,'admin','arr')
 //}
-char *insertUsersSQL(int id,char *login,char *password){
-    char* buff = (char*)malloc(sizeof(char)*131);
-    sprintf(buff, "%s %d %s %s %s %s %s","INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES (", id, ",'", login, "','", password, "')");
-    return buff;
-}
+
 
 int main() {
-    sqlite3 *db;
+//    sqlite3 *db;
     char *sql;
+    User *user;
+    user = create_user(3, "querty", "12");
+    Message *msg;
+    long lt = time(NULL);
+    msg = create_message(0, 0, "Fuck oracle!", lt);
+//    db = openDB("users");
+//    if (db == NULL)
+//        return 22;
+//
+//    sql = "CREATE TABLE Users("
+//          "    id INTEGER PRIMARY KEY NOT NULL,"
+//          "    login VARCHAR(20),"
+//          "    password VARCHAR(40)"
+//          ")";
+//    int rc = dbRequest(db, sql);
+//    if (rc == false)
+//        return 23;
 
-    db = openDB("users");
-    if (db == NULL)
-        return 22;
+    sql = insertUsersSQL(user);
+    mx_printstr(sql);
+    mx_printchar('\n');
+    sql = insertMessageSQL(msg);
+    mx_printstr(sql);
+    mx_printchar('\n');
+    sql = updateMessage(0, "Fuck, I hate oracle");
+    mx_printstr(sql);
+    mx_printchar('\n');
+    sql = updatePassword(2, "123456");
+    mx_printstr(sql);
+    mx_printchar('\n');
+    sql = deleteMessage(0);
+    mx_printstr(sql);
+    mx_printchar('\n');
 
-    sql = "CREATE TABLE Users("
-          "    id INTEGER PRIMARY KEY NOT NULL,"
-          "    login VARCHAR(20),"
-          "    password VARCHAR(40)"
-          ")";
-    int rc = dbRequest(db,sql);
-    if (rc == false)
-        return 23;
-
-sql = insertUsersSQL(3,"qwerty","12");
-mx_printstr(sql);
-mx_printchar('\n');
-
-     rc = dbRequest(db,sql);
-    if (rc == false)
-        return 23;
-
-    sqlite3_close(db);
+//    rc = dbRequest(db, sql);
+//    if (rc == false)
+//        return 23;
+//
+//    sqlite3_close(db);
     return 0;
 }
