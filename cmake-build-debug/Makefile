@@ -170,32 +170,140 @@ client/src/client.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/client.c.s
 .PHONY : client/src/client.c.s
 
-server.o: server.c.o
+client/src/command_api.o: client/src/command_api.c.o
 
-.PHONY : server.o
+.PHONY : client/src/command_api.o
 
 # target to build an object file
-server.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server.c.o
-.PHONY : server.c.o
+client/src/command_api.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_api.c.o
+.PHONY : client/src/command_api.c.o
 
-server.i: server.c.i
+client/src/command_api.i: client/src/command_api.c.i
 
-.PHONY : server.i
+.PHONY : client/src/command_api.i
 
 # target to preprocess a source file
-server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server.c.i
-.PHONY : server.c.i
+client/src/command_api.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_api.c.i
+.PHONY : client/src/command_api.c.i
 
-server.s: server.c.s
+client/src/command_api.s: client/src/command_api.c.s
 
-.PHONY : server.s
+.PHONY : client/src/command_api.s
 
 # target to generate assembly for a file
-server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server.c.s
-.PHONY : server.c.s
+client/src/command_api.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_api.c.s
+.PHONY : client/src/command_api.c.s
+
+client/src/printer.o: client/src/printer.c.o
+
+.PHONY : client/src/printer.o
+
+# target to build an object file
+client/src/printer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/printer.c.o
+.PHONY : client/src/printer.c.o
+
+client/src/printer.i: client/src/printer.c.i
+
+.PHONY : client/src/printer.i
+
+# target to preprocess a source file
+client/src/printer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/printer.c.i
+.PHONY : client/src/printer.c.i
+
+client/src/printer.s: client/src/printer.c.s
+
+.PHONY : client/src/printer.s
+
+# target to generate assembly for a file
+client/src/printer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/printer.c.s
+.PHONY : client/src/printer.c.s
+
+client/src/socked_api.o: client/src/socked_api.c.o
+
+.PHONY : client/src/socked_api.o
+
+# target to build an object file
+client/src/socked_api.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/socked_api.c.o
+.PHONY : client/src/socked_api.c.o
+
+client/src/socked_api.i: client/src/socked_api.c.i
+
+.PHONY : client/src/socked_api.i
+
+# target to preprocess a source file
+client/src/socked_api.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/socked_api.c.i
+.PHONY : client/src/socked_api.c.i
+
+client/src/socked_api.s: client/src/socked_api.c.s
+
+.PHONY : client/src/socked_api.s
+
+# target to generate assembly for a file
+client/src/socked_api.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/socked_api.c.s
+.PHONY : client/src/socked_api.c.s
+
+client/src/string_api.o: client/src/string_api.c.o
+
+.PHONY : client/src/string_api.o
+
+# target to build an object file
+client/src/string_api.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/string_api.c.o
+.PHONY : client/src/string_api.c.o
+
+client/src/string_api.i: client/src/string_api.c.i
+
+.PHONY : client/src/string_api.i
+
+# target to preprocess a source file
+client/src/string_api.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/string_api.c.i
+.PHONY : client/src/string_api.c.i
+
+client/src/string_api.s: client/src/string_api.c.s
+
+.PHONY : client/src/string_api.s
+
+# target to generate assembly for a file
+client/src/string_api.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/string_api.c.s
+.PHONY : client/src/string_api.c.s
+
+main.o: main.c.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/main.c.s
+.PHONY : main.c.s
 
 server/src/dbRequest.o: server/src/dbRequest.c.o
 
@@ -224,33 +332,6 @@ server/src/dbRequest.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/dbRequest.c.s
 .PHONY : server/src/dbRequest.c.s
 
-server/src/main.o: server/src/main.c.o
-
-.PHONY : server/src/main.o
-
-# target to build an object file
-server/src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/main.c.o
-.PHONY : server/src/main.c.o
-
-server/src/main.i: server/src/main.c.i
-
-.PHONY : server/src/main.i
-
-# target to preprocess a source file
-server/src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/main.c.i
-.PHONY : server/src/main.c.i
-
-server/src/main.s: server/src/main.c.s
-
-.PHONY : server/src/main.s
-
-# target to generate assembly for a file
-server/src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/main.c.s
-.PHONY : server/src/main.c.s
-
 server/src/openDB.o: server/src/openDB.c.o
 
 .PHONY : server/src/openDB.o
@@ -278,6 +359,33 @@ server/src/openDB.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/openDB.c.s
 .PHONY : server/src/openDB.c.s
 
+server/src/server.o: server/src/server.c.o
+
+.PHONY : server/src/server.o
+
+# target to build an object file
+server/src/server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/server.c.o
+.PHONY : server/src/server.c.o
+
+server/src/server.i: server/src/server.c.i
+
+.PHONY : server/src/server.i
+
+# target to preprocess a source file
+server/src/server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/server.c.i
+.PHONY : server/src/server.c.i
+
+server/src/server.s: server/src/server.c.s
+
+.PHONY : server/src/server.s
+
+# target to generate assembly for a file
+server/src/server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/server.c.s
+.PHONY : server/src/server.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -290,18 +398,30 @@ help:
 	@echo "... client/src/client.o"
 	@echo "... client/src/client.i"
 	@echo "... client/src/client.s"
-	@echo "... server.o"
-	@echo "... server.i"
-	@echo "... server.s"
+	@echo "... client/src/command_api.o"
+	@echo "... client/src/command_api.i"
+	@echo "... client/src/command_api.s"
+	@echo "... client/src/printer.o"
+	@echo "... client/src/printer.i"
+	@echo "... client/src/printer.s"
+	@echo "... client/src/socked_api.o"
+	@echo "... client/src/socked_api.i"
+	@echo "... client/src/socked_api.s"
+	@echo "... client/src/string_api.o"
+	@echo "... client/src/string_api.i"
+	@echo "... client/src/string_api.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... server/src/dbRequest.o"
 	@echo "... server/src/dbRequest.i"
 	@echo "... server/src/dbRequest.s"
-	@echo "... server/src/main.o"
-	@echo "... server/src/main.i"
-	@echo "... server/src/main.s"
 	@echo "... server/src/openDB.o"
 	@echo "... server/src/openDB.i"
 	@echo "... server/src/openDB.s"
+	@echo "... server/src/server.o"
+	@echo "... server/src/server.i"
+	@echo "... server/src/server.s"
 .PHONY : help
 
 

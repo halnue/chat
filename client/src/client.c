@@ -1,19 +1,14 @@
 #include "../inc/client.h"
 #include "regex.h"
 
-#define COMMAND_REGISTER "/register"
-#define COMMAND_LOGIN "/login"
-#define COMMAND_EXIT "/exit"
+
 
 // Global variables
 volatile sig_atomic_t flag = 0;
 int sockfd = 0;
 char name[32];
+bool isLogin = false;
 
-void str_overwrite_stdout() {
-    printf("%s", "> ");
-    fflush(stdout);
-}
 
 
 void str_trim_lf(char *arr, int length) {
@@ -25,10 +20,6 @@ void str_trim_lf(char *arr, int length) {
         }
     }
 }
-
-//void check_command(char *string){
-//
-//}
 
 void catch_ctrl_c_and_exit() {
     flag = 1;
@@ -44,11 +35,15 @@ void *send_msg_handler() {
         fgets(message, LENGTH, stdin);
         str_trim_lf(message, LENGTH);
 
-        if (strcmp(message, "exit") == 0) {
-            break;
+        if (isCommand(message)) {
+            if (isCommandExit(message)) {
+                break;
+            } else runCommandClient(message,sockfd);
         } else {
-            sprintf(buffer, "%s: %s\n", name, message);
-            send(sockfd, buffer, strlen(buffer), 0);
+            if (isLogin) {
+                sprintf(buffer, "%s: %s\n", name, message);
+                send(sockfd, buffer, strlen(buffer), 0);
+            }
         }
 
         bzero(message, LENGTH);
@@ -89,6 +84,7 @@ int main() {
 
     printf("Please enter your name: ");
     fgets(name, 32, stdin);
+
     str_trim_lf(name, strlen(name));
 
 

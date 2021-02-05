@@ -84,10 +84,22 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/client.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/command_api.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/inc/mDb.h">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/printer.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/socked_api.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/string_api.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/main.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/inc/api_db.h">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/inc/server.h">
@@ -96,10 +108,10 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/dbRequest.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/main.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/openDB.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/openDB.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/server.c">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/api.h">
