@@ -1,4 +1,4 @@
-NAME	=	testSqlite
+NAME	=	server
 
 CFLG	=	-std=c11 $(addprefix -W, all extra error pedantic) -g
 

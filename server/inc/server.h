@@ -16,6 +16,7 @@
 #include <pthread.h>
 #include <sys/types.h>
 #include <signal.h>
+#include "api_db.h"
 
 #define MAX_CLIENTS 100
 #define BUFFER_SZ 2048

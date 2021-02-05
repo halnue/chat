@@ -1,6 +1,3 @@
-//
-// Created by Mykhailo Burenko on 2/4/21.
-//
 #include "../inc/api_db.h"
 
 

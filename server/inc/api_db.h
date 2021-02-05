@@ -17,8 +17,8 @@ sqlite3 *openDB(char *nameDB);
 
 int dbRequest(sqlite3 *db, const char *sql);
 
-char *insertUsersSQL(User usr);
-char *insertMessageSQL(Message msg);//INSERT INTO Messages(id, idUser, Message, time, edit) VALUES (0,0,'Hello, Ucode!',1612451993,false)
+char *insertUsersSQL(User *usr);
+char *insertMessageSQL(Message *msg);//INSERT INTO Messages(id, idUser, Message, time, edit) VALUES (0,0,'Hello, Ucode!',1612451993,false)
 char *updateMessage(int id,char *newMessage);//UPDATE Messages set edit = true,Message = 'Hello, Ucode! I can edit.'where id = 0
 char *updatePassword(int id,char *newPassword);//UPDATE Users set password = '321' where id = 0
 char *deleteMessage(int id); // DELETE from Messages where id = 0
