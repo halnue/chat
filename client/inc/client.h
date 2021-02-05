@@ -19,9 +19,6 @@
 #include "../../utils/api.h"
 
 #define LENGTH 2048
-#define COMMAND_REGISTER "/register"
-#define COMMAND_LOGIN "/login"
-#define COMMAND_EXIT "/exit"
 
 
 // printer
@@ -30,10 +27,9 @@ void print(char *string);
 bool isCommandExit(char *command);
 
 char *rm_first_spas(char *string);
-bool isCommand(char *string);
+//bool isCommand(char *string);
 
 
-void runCommandClient(int command,int socked);
-int selectCommand(char *command);
+void runCommandClient(char *command,int socked);
 
 #endif //OWN_UCHAT_CLIENT_H

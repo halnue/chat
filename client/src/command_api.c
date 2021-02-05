@@ -3,14 +3,12 @@
 //
 #include "../inc/client.h"
 
-#define LOGIN }if (strcmp(command,COMMAND_LOGIN) == 0){
-#define REGISTER if (strcmp(command,COMMAND_REGISTER) == 0){
-#define EXIT }if (strcmp(command,COMMAND_EXIT) == 0){
 
-void runCommandClient(int command,int socked) {
+
+void runCommandClient(char *command,int socked) {
     REGISTER
-        char *login;
-        char *password;
+        char *login = NULL;
+        char *password = NULL;
         print("Creating new user");
         print("Enter login");
         scanf("%s", login);
@@ -20,8 +18,8 @@ void runCommandClient(int command,int socked) {
         send(socked, login, strlen(login), 0);
         send(socked, password, strlen(password), 0);
     LOGIN
-        char *login;
-        char *password;
+        char *login = NULL;
+        char *password = NULL;
         print("Enter login");
         scanf("%s", login);
         print("Enter password");

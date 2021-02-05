@@ -94,12 +94,12 @@ clean: CMakeFiles/own_uchat.dir/clean
 CMakeFiles/own_uchat.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target own_uchat"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target own_uchat"
 .PHONY : CMakeFiles/own_uchat.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/own_uchat.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/own_uchat.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/own_uchat.dir/rule

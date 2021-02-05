@@ -16,6 +16,13 @@
 
 #define PORT_SERVER 8080
 
+#define COMMAND_REGISTER "/register"
+#define COMMAND_LOGIN "/login"
+#define COMMAND_EXIT "/exit"
+#define LOGIN }if (strcmp(command,COMMAND_LOGIN) == 0){
+#define REGISTER if (strcmp(command,COMMAND_REGISTER) == 0){
+#define EXIT }if (strcmp(command,COMMAND_EXIT) == 0){
+
 typedef struct _User{
     int id;
     char *login;
@@ -29,6 +36,13 @@ typedef struct _message{
     bool edit;
 } Message;
 
-
+bool isCommand(char *string) {
+    int i = 0;
+    while (true) {
+        if (mx_is_space(string[i]))string++;
+        else if (string[i] == '/') return true;
+        else return false;
+    }
+}
 
 #endif //OWN_UCHAT_API_H

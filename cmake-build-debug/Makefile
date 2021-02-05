@@ -305,6 +305,87 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/main.c.s
 .PHONY : main.c.s
 
+server/src/command_controler.o: server/src/command_controler.c.o
+
+.PHONY : server/src/command_controler.o
+
+# target to build an object file
+server/src/command_controler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/command_controler.c.o
+.PHONY : server/src/command_controler.c.o
+
+server/src/command_controler.i: server/src/command_controler.c.i
+
+.PHONY : server/src/command_controler.i
+
+# target to preprocess a source file
+server/src/command_controler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/command_controler.c.i
+.PHONY : server/src/command_controler.c.i
+
+server/src/command_controler.s: server/src/command_controler.c.s
+
+.PHONY : server/src/command_controler.s
+
+# target to generate assembly for a file
+server/src/command_controler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/command_controler.c.s
+.PHONY : server/src/command_controler.c.s
+
+server/src/create_struct.o: server/src/create_struct.c.o
+
+.PHONY : server/src/create_struct.o
+
+# target to build an object file
+server/src/create_struct.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/create_struct.c.o
+.PHONY : server/src/create_struct.c.o
+
+server/src/create_struct.i: server/src/create_struct.c.i
+
+.PHONY : server/src/create_struct.i
+
+# target to preprocess a source file
+server/src/create_struct.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/create_struct.c.i
+.PHONY : server/src/create_struct.c.i
+
+server/src/create_struct.s: server/src/create_struct.c.s
+
+.PHONY : server/src/create_struct.s
+
+# target to generate assembly for a file
+server/src/create_struct.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/create_struct.c.s
+.PHONY : server/src/create_struct.c.s
+
+server/src/db.o: server/src/db.c.o
+
+.PHONY : server/src/db.o
+
+# target to build an object file
+server/src/db.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/db.c.o
+.PHONY : server/src/db.c.o
+
+server/src/db.i: server/src/db.c.i
+
+.PHONY : server/src/db.i
+
+# target to preprocess a source file
+server/src/db.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/db.c.i
+.PHONY : server/src/db.c.i
+
+server/src/db.s: server/src/db.c.s
+
+.PHONY : server/src/db.s
+
+# target to generate assembly for a file
+server/src/db.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/db.c.s
+.PHONY : server/src/db.c.s
+
 server/src/dbRequest.o: server/src/dbRequest.c.o
 
 .PHONY : server/src/dbRequest.o
@@ -413,6 +494,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... server/src/command_controler.o"
+	@echo "... server/src/command_controler.i"
+	@echo "... server/src/command_controler.s"
+	@echo "... server/src/create_struct.o"
+	@echo "... server/src/create_struct.i"
+	@echo "... server/src/create_struct.s"
+	@echo "... server/src/db.o"
+	@echo "... server/src/db.i"
+	@echo "... server/src/db.s"
 	@echo "... server/src/dbRequest.o"
 	@echo "... server/src/dbRequest.i"
 	@echo "... server/src/dbRequest.s"

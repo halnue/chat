@@ -5,8 +5,6 @@ static int uid = 10;
 
 client_t *clients[MAX_CLIENTS];
 
-pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
-
 void str_overwrite_stdout() {
     printf("\r%s", "> ");
     fflush(stdout);
@@ -107,12 +105,15 @@ void *handle_client(void *arg) {
 
         int receive = recv(cli->sockfd, buff_out, BUFFER_SZ, 0);
         if (receive > 0) {
-            if (strlen(buff_out) > 0) {
-                send_message(buff_out, cli->uid);
+            if (isCommand(buff_out)) {
 
-                str_trim_lf(buff_out, strlen(buff_out));
-                printf("%s -> %s\n", buff_out, cli->name);
             }
+//            if (strlen(buff_out) > 0) {
+//                send_message(buff_out, cli->uid);
+//
+//                str_trim_lf(buff_out, strlen(buff_out));
+//                printf("%s -> %s\n", buff_out, cli->name);
+//            }
         } else if (receive == 0 || strcmp(buff_out, "exit") == 0) {
             sprintf(buff_out, "%s has left\n", cli->name);
             printf("%s", buff_out);
