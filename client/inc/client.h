@@ -15,7 +15,11 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <pthread.h>
+#include "../../utils/libmx/inc/libmx.h"
+#include "../../utils/api.h"
 
 #define LENGTH 2048
+
+char *rm_first_spas(char *string);
 
 #endif //OWN_UCHAT_CLIENT_H
