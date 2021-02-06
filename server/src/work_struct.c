@@ -24,13 +24,13 @@ Message *create_message(int idUser, char *msg, long time) {
 }
 
 int createNewIdUser() {
-    static int idUser = 0;
+    static int idUser = 10;
     idUser++;
     return idUser;
 }
 
 int createNewIdMassage() {
-    static int idMassage = 0;
+    static int idMassage = 10;
     idMassage++;
     return idMassage;
 }

@@ -172,6 +172,9 @@ int main() {
     /* Ignore pipe signals */
     signal(SIGPIPE, SIG_IGN);
 
+    sqlTransaction(CREATE_TABLE_MESSAGES, clients_mutex);
+    sqlTransaction(CREATE_TABLE_USERS, clients_mutex);
+
     if (setsockopt(listenfd, SOL_SOCKET, (SO_REUSEPORT, SO_REUSEADDR), (char *) &option, sizeof(option)) < 0) {
         perror("ERROR: setsockopt failed");
         return EXIT_FAILURE;

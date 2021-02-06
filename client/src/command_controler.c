@@ -34,16 +34,12 @@ void runCommandClient(char *command, int socked) {
     char *str = CREATE_SIZE(char, mx_arrlen(&command));
     mx_strcpy(str, command);
     char **parsCommand = toCommandWithArg1(str);
-        print(parsCommand[0]);
-    if (strcmp(parsCommand[0], COMMAND_REGISTER) == 0) {
-        print(str);
+    if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
         send(socked, command, strlen(command), 0);
-    } else if (strcmp(parsCommand[0], COMMAND_LOGIN) == 0) {
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOGIN) == 0) {
         char *login = NULL;
         char *password = NULL;
-        print("Enter login");
         scanf("%s", login);
-        print("Enter password");
         scanf("%s", password);
         send(socked, command, strlen(command), 0);
         send(socked, login, strlen(login), 0);
@@ -55,6 +51,6 @@ void runCommandClient(char *command, int socked) {
 }
 
 bool isCommandExit(char *command) {
-    if (strcmp(command, COMMAND_EXIT) == 0) return true;
+    if (strcmp(command, COMMAND_CLIENT_EXIT) == 0) return true;
     return false;
 }

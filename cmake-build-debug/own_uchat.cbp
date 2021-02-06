@@ -111,7 +111,13 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/dbRequest.c">
 			<Option target="own_uchat"/>
 		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/get_request_SQL.c">
+			<Option target="own_uchat"/>
+		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/openDB.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/response_server.c">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/server.c">
@@ -124,6 +130,9 @@
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/command.h">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/mUtils/src/command_utils.c">

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "../inc/api_db.h"
 
 
@@ -18,11 +19,25 @@ int dbRequest(sqlite3* db, const char *sql){
     int rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 
     if( rc != SQLITE_OK ){
-        mx_printerr("SQL error: %s\n");
-        mx_printerr(zErrMsg);
+        printf( "SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
         return false;
     } else {
         return true;
     }
 }
+
+int dbRequestCall(sqlite3* db, const char *sql,int (*own_callback)(void*,int,char**,char**),void *data){
+    char *zErrMsg = 0;
+    int rc = sqlite3_exec(db, sql, own_callback, data, &zErrMsg);
+
+    if( rc != SQLITE_OK ){
+        printf( "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
+        return false;
+    } else {
+        return true;
+    }
+}
+
+

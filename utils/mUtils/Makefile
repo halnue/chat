@@ -1,4 +1,4 @@
-NAME	=	libmx.a
+NAME	=	utils.a
 
 CFLG	=	-std=c11 -Wall -Wextra -Werror -Wpedantic -g
 COMP 	= 	clang

@@ -66,6 +66,10 @@ void *send_msg_handler() {
     char message[LENGTH];
     char buffer[LENGTH + 32];
 
+    char *tmp = "/login user 123";
+
+    send(sockfd, tmp, strlen(tmp), 0);
+
     while (1) {
 
         str_overwrite_stdout();

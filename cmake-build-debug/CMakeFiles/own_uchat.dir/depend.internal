@@ -4,28 +4,76 @@
 CMakeFiles/own_uchat.dir/client/src/client.c.o
  /Users/mburenko/Documents/own_uchat/client/inc/client.h
  /Users/mburenko/Documents/own_uchat/client/src/client.c
- /Users/mburenko/Documents/own_uchat/utils/api.h
  /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+CMakeFiles/own_uchat.dir/client/src/command_controler.c.o
+ /Users/mburenko/Documents/own_uchat/client/inc/client.h
+ /Users/mburenko/Documents/own_uchat/client/src/command_controler.c
+ /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+CMakeFiles/own_uchat.dir/client/src/printer.c.o
+ /Users/mburenko/Documents/own_uchat/client/inc/client.h
+ /Users/mburenko/Documents/own_uchat/client/src/printer.c
+ /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
 CMakeFiles/own_uchat.dir/client/src/string_api.c.o
  /Users/mburenko/Documents/own_uchat/client/inc/client.h
  /Users/mburenko/Documents/own_uchat/client/src/string_api.c
- /Users/mburenko/Documents/own_uchat/utils/api.h
  /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
 CMakeFiles/own_uchat.dir/main.c.o
  /Users/mburenko/Documents/own_uchat/main.c
+CMakeFiles/own_uchat.dir/server/src/command_controler.c.o
+ /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+ /Users/mburenko/Documents/own_uchat/server/inc/server.h
+ /Users/mburenko/Documents/own_uchat/server/src/command_controler.c
+ /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+CMakeFiles/own_uchat.dir/server/src/db.c.o
+ /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+ /Users/mburenko/Documents/own_uchat/server/inc/server.h
+ /Users/mburenko/Documents/own_uchat/server/src/db.c
+ /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
 CMakeFiles/own_uchat.dir/server/src/dbRequest.c.o
  /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
  /Users/mburenko/Documents/own_uchat/server/src/dbRequest.c
- /Users/mburenko/Documents/own_uchat/utils/api.h
  /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+CMakeFiles/own_uchat.dir/server/src/get_request_SQL.c.o
+ /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+ /Users/mburenko/Documents/own_uchat/server/src/get_request_SQL.c
+ /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
 CMakeFiles/own_uchat.dir/server/src/openDB.c.o
  /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
  /Users/mburenko/Documents/own_uchat/server/src/openDB.c
- /Users/mburenko/Documents/own_uchat/utils/api.h
  /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
 CMakeFiles/own_uchat.dir/server/src/server.c.o
  /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
  /Users/mburenko/Documents/own_uchat/server/inc/server.h
  /Users/mburenko/Documents/own_uchat/server/src/server.c
- /Users/mburenko/Documents/own_uchat/utils/api.h
  /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+CMakeFiles/own_uchat.dir/server/src/work_struct.c.o
+ /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+ /Users/mburenko/Documents/own_uchat/server/src/work_struct.c
+ /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o
+ /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/command.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+ /Users/mburenko/Documents/own_uchat/utils/mUtils/src/command_utils.c

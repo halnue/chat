@@ -29,8 +29,8 @@ pthread.h
 -
 ../../utils/libmx/inc/libmx.h
 /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
-../../utils/api.h
-/Users/mburenko/Documents/own_uchat/utils/api.h
+../../utils/mUtils/inc/api.h
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
 
 /Users/mburenko/Documents/own_uchat/client/src/client.c
 ../inc/client.h
@@ -38,19 +38,27 @@ pthread.h
 regex.h
 /Users/mburenko/Documents/own_uchat/client/src/regex.h
 
-/Users/mburenko/Documents/own_uchat/client/src/string_api.c
+/Users/mburenko/Documents/own_uchat/client/src/command_controler.c
+../inc/client.h
+/Users/mburenko/Documents/own_uchat/client/inc/client.h
+regex.h
+/Users/mburenko/Documents/own_uchat/client/src/regex.h
+
+/Users/mburenko/Documents/own_uchat/client/src/printer.c
 ../inc/client.h
 /Users/mburenko/Documents/own_uchat/client/inc/client.h
 
-/Users/mburenko/Documents/own_uchat/main.c
+/Users/mburenko/Documents/own_uchat/client/src/string_api.c
+../inc/client.h
+/Users/mburenko/Documents/own_uchat/client/inc/client.h
 
 /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
 sqlite3.h
 -
 ../../utils/libmx/inc/libmx.h
 /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
-../../utils/api.h
-/Users/mburenko/Documents/own_uchat/utils/api.h
+../../utils/mUtils/inc/api.h
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
 string.h
 /Users/mburenko/Documents/own_uchat/server/inc/string.h
 
@@ -80,7 +88,23 @@ signal.h
 api_db.h
 /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
 
+/Users/mburenko/Documents/own_uchat/server/src/command_controler.c
+../inc/server.h
+/Users/mburenko/Documents/own_uchat/server/inc/server.h
+
+/Users/mburenko/Documents/own_uchat/server/src/db.c
+../inc/server.h
+/Users/mburenko/Documents/own_uchat/server/inc/server.h
+
 /Users/mburenko/Documents/own_uchat/server/src/dbRequest.c
+stdio.h
+-
+../inc/api_db.h
+/Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+
+/Users/mburenko/Documents/own_uchat/server/src/get_request_SQL.c
+stdio.h
+-
 ../inc/api_db.h
 /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
 
@@ -92,7 +116,11 @@ api_db.h
 ../inc/server.h
 /Users/mburenko/Documents/own_uchat/server/inc/server.h
 
-/Users/mburenko/Documents/own_uchat/utils/api.h
+/Users/mburenko/Documents/own_uchat/server/src/work_struct.c
+../inc/api_db.h
+/Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+../../utils/mUtils/inc/api.h
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
 
 /Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
 unistd.h
@@ -105,4 +133,24 @@ fcntl.h
 -
 malloc/malloc.h
 -
+
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
+utils_define.h
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/command.h
+stdbool.h
+-
+../../libmx/inc/libmx.h
+/Users/mburenko/Documents/own_uchat/utils/libmx/inc/libmx.h
+utils_define.h
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+string.h
+-
+
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/utils_define.h
+
+/Users/mburenko/Documents/own_uchat/utils/mUtils/src/command_utils.c
+../inc/command.h
+/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/command.h
 

@@ -3,13 +3,19 @@
 
 char *insertUsersSQL(User *usr){
     char* buff = CREATE_SIZE(char ,130);;
-    sprintf(buff, "%s %d %s%s%s%s%s","INSERT INTO Users(ID, LOGIN, PASSWORD) VALUES (", usr->id, ",'", usr->login, "','", usr->password, "')");
+    sprintf(buff, "%s%s%s%s%s","INSERT INTO Users(LOGIN, PASSWORD) VALUES ('", usr->login, "','", usr->password, "')");
     return buff;
 }
 
 char *insertMessageSQL(Message *msg) {
     char *buff = CREATE_SIZE(char ,1024);
-    sprintf(buff, "%s %d %c %d %s%s%s %ld %c %d %c","INSERT INTO Messages(id, idUser, Message, time, edit) VALUES (", msg->id, ',', msg->idUser, ", '", msg->message, "',", msg->time, ',', msg->edit, ')');
+    sprintf(buff, "%s %d %s%s%s %ld %c %d %c","INSERT INTO Messages(id, idUser, Message, time, edit) VALUES (", msg->idUser, ", '", msg->message, "',", msg->time, ',', msg->edit, ')');
+    return buff;
+}
+
+char *getPasswordSQL(char *login) {
+    char *buff = CREATE_SIZE(char ,50+LENGTH_LOGIN);
+    sprintf(buff, "SELECT password FROM Users WHERE login = '%s'",login);
     return buff;
 }
 
