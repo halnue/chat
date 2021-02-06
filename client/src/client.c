@@ -11,6 +11,8 @@ bool isCommand(char *string) {
     }
 }
 
+
+
 // Global variables
 volatile sig_atomic_t flag = 0;
 int sockfd = 0;
@@ -32,6 +34,33 @@ void str_trim_lf(char *arr, int length) {
 void catch_ctrl_c_and_exit() {
     flag = 1;
 }
+void  printArr(char **arr){
+    int i = 0;
+
+    while(arr[i]) {
+        printf("%s\n",arr[i]);
+        i++;
+    }
+    if (i > 0)
+        mx_printstr("\n");
+
+}
+
+char **toCommandWithArg(char *command) {
+    char **res = CREATE_SIZE(char *, 10)
+    int size = 0;
+    char *sep = " \n\t\v\r\f";
+    char *pch = strtok(command, sep);
+    while ((void *) pch != NULL) {
+        res[size] = pch;
+        printf("%s\n",res[size]);
+        printf("%s\n",pch);
+        size++;
+        pch = strtok(NULL, sep);
+    }
+    res[size] = "\0";
+    return res;
+}
 
 void *send_msg_handler() {
     char message[LENGTH];
@@ -44,6 +73,7 @@ void *send_msg_handler() {
         str_trim_lf(message, LENGTH);
 
         if (isCommand(message)) {
+//            printArr(toCommandWithArg(message));
             if (isCommandExit(message)) {
                 break;
             } else runCommandClient(message,sockfd);

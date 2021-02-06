@@ -2,22 +2,43 @@
 // Created by Mykhailo Burenko on 2/5/21.
 //
 #include "../inc/client.h"
+#include "regex.h"
 
+char **toCommandWithArg1(char *command) {
+    char **res = CREATE_SIZE(char *, 10)
+    int size = 0;
+    char *sep = " \n\t\v\r\f";
+    char *pch = strtok(command, sep);
+    while ((void *) pch != NULL) {
+        res[size] = pch;
+        size++;
+        pch = strtok(NULL, sep);
+    }
+    res[size] = "\0";
+    return res;
+}
 
+void  printArr1(char **arr){
+        int i = 0;
 
-void runCommandClient(char *command,int socked) {
-    REGISTER
-        char *login = CREATE_SIZE(char,1024);
-        char *password = CREATE_SIZE(char,1024);
-        print("Creating new user");
-        print("Enter login");
-        scanf("%s", login);
-        print("Enter password");
-        scanf("%s", password);
+        while(arr[i]) {
+            printf("%s\n",arr[i]);
+            i++;
+        }
+        if (i > 0)
+            mx_printstr("\n");
+
+}
+
+void runCommandClient(char *command, int socked) {
+    char *str = CREATE_SIZE(char, mx_arrlen(&command));
+    mx_strcpy(str, command);
+    char **parsCommand = toCommandWithArg1(str);
+        print(parsCommand[0]);
+    if (strcmp(parsCommand[0], COMMAND_REGISTER) == 0) {
+        print(str);
         send(socked, command, strlen(command), 0);
-        send(socked, login, strlen(login), 0);
-        send(socked, password, strlen(password), 0);
-    LOGIN
+    } else if (strcmp(parsCommand[0], COMMAND_LOGIN) == 0) {
         char *login = NULL;
         char *password = NULL;
         print("Enter login");
@@ -27,23 +48,13 @@ void runCommandClient(char *command,int socked) {
         send(socked, command, strlen(command), 0);
         send(socked, login, strlen(login), 0);
         send(socked, password, strlen(password), 0);
-    EXIT
-
     } else {
-
-
+        printf("Unknown command %s", parsCommand[0]);
     }
+    print("fin");
 }
 
 bool isCommandExit(char *command) {
     if (strcmp(command, COMMAND_EXIT) == 0) return true;
     return false;
-}
-
-int selectCommand(char *command) {
-    if (strcmp(command, COMMAND_REGISTER)) return 1;
-    else if (strcmp(command, COMMAND_LOGIN)) return 2;
-    else if (strcmp(command, COMMAND_EXIT)) return 0;
-    else return -1;
-
 }
