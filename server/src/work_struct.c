@@ -3,7 +3,7 @@
 //
 
 #include "../inc/api_db.h"
-#include "../../utils/api.h"
+#include "../../utils/mUtils/inc/api.h"
 
 User *create_user(char *login, char *password) {
     User *user = CREATE(User);

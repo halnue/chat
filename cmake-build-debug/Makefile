@@ -170,32 +170,32 @@ client/src/client.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/client.c.s
 .PHONY : client/src/client.c.s
 
-client/src/command_api.o: client/src/command_api.c.o
+client/src/command_controler.o: client/src/command_controler.c.o
 
-.PHONY : client/src/command_api.o
+.PHONY : client/src/command_controler.o
 
 # target to build an object file
-client/src/command_api.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_api.c.o
-.PHONY : client/src/command_api.c.o
+client/src/command_controler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_controler.c.o
+.PHONY : client/src/command_controler.c.o
 
-client/src/command_api.i: client/src/command_api.c.i
+client/src/command_controler.i: client/src/command_controler.c.i
 
-.PHONY : client/src/command_api.i
+.PHONY : client/src/command_controler.i
 
 # target to preprocess a source file
-client/src/command_api.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_api.c.i
-.PHONY : client/src/command_api.c.i
+client/src/command_controler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_controler.c.i
+.PHONY : client/src/command_controler.c.i
 
-client/src/command_api.s: client/src/command_api.c.s
+client/src/command_controler.s: client/src/command_controler.c.s
 
-.PHONY : client/src/command_api.s
+.PHONY : client/src/command_controler.s
 
 # target to generate assembly for a file
-client/src/command_api.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_api.c.s
-.PHONY : client/src/command_api.c.s
+client/src/command_controler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_controler.c.s
+.PHONY : client/src/command_controler.c.s
 
 client/src/printer.o: client/src/printer.c.o
 
@@ -223,33 +223,6 @@ client/src/printer.s: client/src/printer.c.s
 client/src/printer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/printer.c.s
 .PHONY : client/src/printer.c.s
-
-client/src/socked_api.o: client/src/socked_api.c.o
-
-.PHONY : client/src/socked_api.o
-
-# target to build an object file
-client/src/socked_api.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/socked_api.c.o
-.PHONY : client/src/socked_api.c.o
-
-client/src/socked_api.i: client/src/socked_api.c.i
-
-.PHONY : client/src/socked_api.i
-
-# target to preprocess a source file
-client/src/socked_api.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/socked_api.c.i
-.PHONY : client/src/socked_api.c.i
-
-client/src/socked_api.s: client/src/socked_api.c.s
-
-.PHONY : client/src/socked_api.s
-
-# target to generate assembly for a file
-client/src/socked_api.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/socked_api.c.s
-.PHONY : client/src/socked_api.c.s
 
 client/src/string_api.o: client/src/string_api.c.o
 
@@ -331,33 +304,6 @@ server/src/command_controler.s: server/src/command_controler.c.s
 server/src/command_controler.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/command_controler.c.s
 .PHONY : server/src/command_controler.c.s
-
-server/src/create_struct.o: server/src/create_struct.c.o
-
-.PHONY : server/src/create_struct.o
-
-# target to build an object file
-server/src/create_struct.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/create_struct.c.o
-.PHONY : server/src/create_struct.c.o
-
-server/src/create_struct.i: server/src/create_struct.c.i
-
-.PHONY : server/src/create_struct.i
-
-# target to preprocess a source file
-server/src/create_struct.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/create_struct.c.i
-.PHONY : server/src/create_struct.c.i
-
-server/src/create_struct.s: server/src/create_struct.c.s
-
-.PHONY : server/src/create_struct.s
-
-# target to generate assembly for a file
-server/src/create_struct.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/create_struct.c.s
-.PHONY : server/src/create_struct.c.s
 
 server/src/db.o: server/src/db.c.o
 
@@ -467,6 +413,60 @@ server/src/server.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/server.c.s
 .PHONY : server/src/server.c.s
 
+server/src/work_struct.o: server/src/work_struct.c.o
+
+.PHONY : server/src/work_struct.o
+
+# target to build an object file
+server/src/work_struct.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/work_struct.c.o
+.PHONY : server/src/work_struct.c.o
+
+server/src/work_struct.i: server/src/work_struct.c.i
+
+.PHONY : server/src/work_struct.i
+
+# target to preprocess a source file
+server/src/work_struct.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/work_struct.c.i
+.PHONY : server/src/work_struct.c.i
+
+server/src/work_struct.s: server/src/work_struct.c.s
+
+.PHONY : server/src/work_struct.s
+
+# target to generate assembly for a file
+server/src/work_struct.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/server/src/work_struct.c.s
+.PHONY : server/src/work_struct.c.s
+
+utils/mUtils/src/command_utils.o: utils/mUtils/src/command_utils.c.o
+
+.PHONY : utils/mUtils/src/command_utils.o
+
+# target to build an object file
+utils/mUtils/src/command_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o
+.PHONY : utils/mUtils/src/command_utils.c.o
+
+utils/mUtils/src/command_utils.i: utils/mUtils/src/command_utils.c.i
+
+.PHONY : utils/mUtils/src/command_utils.i
+
+# target to preprocess a source file
+utils/mUtils/src/command_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.i
+.PHONY : utils/mUtils/src/command_utils.c.i
+
+utils/mUtils/src/command_utils.s: utils/mUtils/src/command_utils.c.s
+
+.PHONY : utils/mUtils/src/command_utils.s
+
+# target to generate assembly for a file
+utils/mUtils/src/command_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.s
+.PHONY : utils/mUtils/src/command_utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -479,15 +479,12 @@ help:
 	@echo "... client/src/client.o"
 	@echo "... client/src/client.i"
 	@echo "... client/src/client.s"
-	@echo "... client/src/command_api.o"
-	@echo "... client/src/command_api.i"
-	@echo "... client/src/command_api.s"
+	@echo "... client/src/command_controler.o"
+	@echo "... client/src/command_controler.i"
+	@echo "... client/src/command_controler.s"
 	@echo "... client/src/printer.o"
 	@echo "... client/src/printer.i"
 	@echo "... client/src/printer.s"
-	@echo "... client/src/socked_api.o"
-	@echo "... client/src/socked_api.i"
-	@echo "... client/src/socked_api.s"
 	@echo "... client/src/string_api.o"
 	@echo "... client/src/string_api.i"
 	@echo "... client/src/string_api.s"
@@ -497,9 +494,6 @@ help:
 	@echo "... server/src/command_controler.o"
 	@echo "... server/src/command_controler.i"
 	@echo "... server/src/command_controler.s"
-	@echo "... server/src/create_struct.o"
-	@echo "... server/src/create_struct.i"
-	@echo "... server/src/create_struct.s"
 	@echo "... server/src/db.o"
 	@echo "... server/src/db.i"
 	@echo "... server/src/db.s"
@@ -512,6 +506,12 @@ help:
 	@echo "... server/src/server.o"
 	@echo "... server/src/server.i"
 	@echo "... server/src/server.s"
+	@echo "... server/src/work_struct.o"
+	@echo "... server/src/work_struct.i"
+	@echo "... server/src/work_struct.s"
+	@echo "... utils/mUtils/src/command_utils.o"
+	@echo "... utils/mUtils/src/command_utils.i"
+	@echo "... utils/mUtils/src/command_utils.s"
 .PHONY : help
 
 

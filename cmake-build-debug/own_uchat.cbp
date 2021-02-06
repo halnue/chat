@@ -84,13 +84,10 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/client.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/command_api.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/command_controler.c">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/printer.c">
-			<Option target="own_uchat"/>
-		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/socked_api.c">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/string_api.c">
@@ -108,9 +105,6 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/command_controler.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/create_struct.c">
-			<Option target="own_uchat"/>
-		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/db.c">
 			<Option target="own_uchat"/>
 		</Unit>
@@ -123,7 +117,16 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/server.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/api.h">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/work_struct.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/command.h">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/mUtils/src/command_utils.c">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/CMakeLists.txt">

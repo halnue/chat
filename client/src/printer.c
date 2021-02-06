@@ -10,8 +10,6 @@ void str_overwrite_stdout() {
 
 void print(char *string){
     printf("%s\n", string);
-
 //    scanf("%[^\n]%*c", login);
-
 }
 

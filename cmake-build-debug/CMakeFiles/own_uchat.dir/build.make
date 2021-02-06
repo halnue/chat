@@ -155,18 +155,18 @@ CMakeFiles/own_uchat.dir/client/src/string_api.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/client/src/string_api.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/client/src/string_api.c -o CMakeFiles/own_uchat.dir/client/src/string_api.c.s
 
-CMakeFiles/own_uchat.dir/client/src/command_api.c.o: CMakeFiles/own_uchat.dir/flags.make
-CMakeFiles/own_uchat.dir/client/src/command_api.c.o: ../client/src/command_api.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/own_uchat.dir/client/src/command_api.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/client/src/command_api.c.o   -c /Users/mburenko/Documents/own_uchat/client/src/command_api.c
+CMakeFiles/own_uchat.dir/client/src/command_controler.c.o: CMakeFiles/own_uchat.dir/flags.make
+CMakeFiles/own_uchat.dir/client/src/command_controler.c.o: ../client/src/command_controler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/own_uchat.dir/client/src/command_controler.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/client/src/command_controler.c.o   -c /Users/mburenko/Documents/own_uchat/client/src/command_controler.c
 
-CMakeFiles/own_uchat.dir/client/src/command_api.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/own_uchat.dir/client/src/command_api.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mburenko/Documents/own_uchat/client/src/command_api.c > CMakeFiles/own_uchat.dir/client/src/command_api.c.i
+CMakeFiles/own_uchat.dir/client/src/command_controler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/own_uchat.dir/client/src/command_controler.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mburenko/Documents/own_uchat/client/src/command_controler.c > CMakeFiles/own_uchat.dir/client/src/command_controler.c.i
 
-CMakeFiles/own_uchat.dir/client/src/command_api.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/client/src/command_api.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/client/src/command_api.c -o CMakeFiles/own_uchat.dir/client/src/command_api.c.s
+CMakeFiles/own_uchat.dir/client/src/command_controler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/client/src/command_controler.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/client/src/command_controler.c -o CMakeFiles/own_uchat.dir/client/src/command_controler.c.s
 
 CMakeFiles/own_uchat.dir/client/src/printer.c.o: CMakeFiles/own_uchat.dir/flags.make
 CMakeFiles/own_uchat.dir/client/src/printer.c.o: ../client/src/printer.c
@@ -181,22 +181,9 @@ CMakeFiles/own_uchat.dir/client/src/printer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/client/src/printer.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/client/src/printer.c -o CMakeFiles/own_uchat.dir/client/src/printer.c.s
 
-CMakeFiles/own_uchat.dir/client/src/socked_api.c.o: CMakeFiles/own_uchat.dir/flags.make
-CMakeFiles/own_uchat.dir/client/src/socked_api.c.o: ../client/src/socked_api.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/own_uchat.dir/client/src/socked_api.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/client/src/socked_api.c.o   -c /Users/mburenko/Documents/own_uchat/client/src/socked_api.c
-
-CMakeFiles/own_uchat.dir/client/src/socked_api.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/own_uchat.dir/client/src/socked_api.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mburenko/Documents/own_uchat/client/src/socked_api.c > CMakeFiles/own_uchat.dir/client/src/socked_api.c.i
-
-CMakeFiles/own_uchat.dir/client/src/socked_api.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/client/src/socked_api.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/client/src/socked_api.c -o CMakeFiles/own_uchat.dir/client/src/socked_api.c.s
-
 CMakeFiles/own_uchat.dir/server/src/command_controler.c.o: CMakeFiles/own_uchat.dir/flags.make
 CMakeFiles/own_uchat.dir/server/src/command_controler.c.o: ../server/src/command_controler.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/own_uchat.dir/server/src/command_controler.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/own_uchat.dir/server/src/command_controler.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/server/src/command_controler.c.o   -c /Users/mburenko/Documents/own_uchat/server/src/command_controler.c
 
 CMakeFiles/own_uchat.dir/server/src/command_controler.c.i: cmake_force
@@ -209,7 +196,7 @@ CMakeFiles/own_uchat.dir/server/src/command_controler.c.s: cmake_force
 
 CMakeFiles/own_uchat.dir/server/src/db.c.o: CMakeFiles/own_uchat.dir/flags.make
 CMakeFiles/own_uchat.dir/server/src/db.c.o: ../server/src/db.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/own_uchat.dir/server/src/db.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/own_uchat.dir/server/src/db.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/server/src/db.c.o   -c /Users/mburenko/Documents/own_uchat/server/src/db.c
 
 CMakeFiles/own_uchat.dir/server/src/db.c.i: cmake_force
@@ -220,18 +207,31 @@ CMakeFiles/own_uchat.dir/server/src/db.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/server/src/db.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/server/src/db.c -o CMakeFiles/own_uchat.dir/server/src/db.c.s
 
-CMakeFiles/own_uchat.dir/server/src/create_struct.c.o: CMakeFiles/own_uchat.dir/flags.make
-CMakeFiles/own_uchat.dir/server/src/create_struct.c.o: ../server/src/create_struct.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/own_uchat.dir/server/src/create_struct.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/server/src/create_struct.c.o   -c /Users/mburenko/Documents/own_uchat/server/src/create_struct.c
+CMakeFiles/own_uchat.dir/server/src/work_struct.c.o: CMakeFiles/own_uchat.dir/flags.make
+CMakeFiles/own_uchat.dir/server/src/work_struct.c.o: ../server/src/work_struct.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/own_uchat.dir/server/src/work_struct.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/server/src/work_struct.c.o   -c /Users/mburenko/Documents/own_uchat/server/src/work_struct.c
 
-CMakeFiles/own_uchat.dir/server/src/create_struct.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/own_uchat.dir/server/src/create_struct.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mburenko/Documents/own_uchat/server/src/create_struct.c > CMakeFiles/own_uchat.dir/server/src/create_struct.c.i
+CMakeFiles/own_uchat.dir/server/src/work_struct.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/own_uchat.dir/server/src/work_struct.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mburenko/Documents/own_uchat/server/src/work_struct.c > CMakeFiles/own_uchat.dir/server/src/work_struct.c.i
 
-CMakeFiles/own_uchat.dir/server/src/create_struct.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/server/src/create_struct.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/server/src/create_struct.c -o CMakeFiles/own_uchat.dir/server/src/create_struct.c.s
+CMakeFiles/own_uchat.dir/server/src/work_struct.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/server/src/work_struct.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/server/src/work_struct.c -o CMakeFiles/own_uchat.dir/server/src/work_struct.c.s
+
+CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o: CMakeFiles/own_uchat.dir/flags.make
+CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o: ../utils/mUtils/src/command_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o   -c /Users/mburenko/Documents/own_uchat/utils/mUtils/src/command_utils.c
+
+CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/mburenko/Documents/own_uchat/utils/mUtils/src/command_utils.c > CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.i
+
+CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/mburenko/Documents/own_uchat/utils/mUtils/src/command_utils.c -o CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.s
 
 # Object files for target own_uchat
 own_uchat_OBJECTS = \
@@ -241,12 +241,12 @@ own_uchat_OBJECTS = \
 "CMakeFiles/own_uchat.dir/server/src/openDB.c.o" \
 "CMakeFiles/own_uchat.dir/server/src/dbRequest.c.o" \
 "CMakeFiles/own_uchat.dir/client/src/string_api.c.o" \
-"CMakeFiles/own_uchat.dir/client/src/command_api.c.o" \
+"CMakeFiles/own_uchat.dir/client/src/command_controler.c.o" \
 "CMakeFiles/own_uchat.dir/client/src/printer.c.o" \
-"CMakeFiles/own_uchat.dir/client/src/socked_api.c.o" \
 "CMakeFiles/own_uchat.dir/server/src/command_controler.c.o" \
 "CMakeFiles/own_uchat.dir/server/src/db.c.o" \
-"CMakeFiles/own_uchat.dir/server/src/create_struct.c.o"
+"CMakeFiles/own_uchat.dir/server/src/work_struct.c.o" \
+"CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o"
 
 # External object files for target own_uchat
 own_uchat_EXTERNAL_OBJECTS =
@@ -257,12 +257,12 @@ own_uchat: CMakeFiles/own_uchat.dir/client/src/client.c.o
 own_uchat: CMakeFiles/own_uchat.dir/server/src/openDB.c.o
 own_uchat: CMakeFiles/own_uchat.dir/server/src/dbRequest.c.o
 own_uchat: CMakeFiles/own_uchat.dir/client/src/string_api.c.o
-own_uchat: CMakeFiles/own_uchat.dir/client/src/command_api.c.o
+own_uchat: CMakeFiles/own_uchat.dir/client/src/command_controler.c.o
 own_uchat: CMakeFiles/own_uchat.dir/client/src/printer.c.o
-own_uchat: CMakeFiles/own_uchat.dir/client/src/socked_api.c.o
 own_uchat: CMakeFiles/own_uchat.dir/server/src/command_controler.c.o
 own_uchat: CMakeFiles/own_uchat.dir/server/src/db.c.o
-own_uchat: CMakeFiles/own_uchat.dir/server/src/create_struct.c.o
+own_uchat: CMakeFiles/own_uchat.dir/server/src/work_struct.c.o
+own_uchat: CMakeFiles/own_uchat.dir/utils/mUtils/src/command_utils.c.o
 own_uchat: CMakeFiles/own_uchat.dir/build.make
 own_uchat: CMakeFiles/own_uchat.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable own_uchat"

@@ -21,7 +21,6 @@
 #define MAX_CLIENTS 100
 #define BUFFER_SZ 2048
 
-pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 /* Client structure */
 typedef struct{
@@ -32,8 +31,8 @@ typedef struct{
 } client_t;
 
 
-void runCommand(int command,int socked);
+void runCommand(char *command,int socked,pthread_mutex_t mutex);
 
-bool sqlTransaction(char *sql);
+bool sqlTransaction(char *sql,pthread_mutex_t mutex);
 
 #endif //OWN_UCHAT_SERVER_H

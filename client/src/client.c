@@ -2,6 +2,14 @@
 #include "regex.h"
 
 
+bool isCommand(char *string) {
+    int i = 0;
+    while (true) {
+        if (mx_is_space(string[i]))string++;
+        else if (string[i] == '/') return true;
+        else return false;
+    }
+}
 
 // Global variables
 volatile sig_atomic_t flag = 0;

@@ -7,7 +7,7 @@
 
 #include <sqlite3.h>
 #include "../../utils/libmx/inc/libmx.h"
-#include "../../utils/api.h"
+#include "../../utils/mUtils/inc/api.h"
 #include "string.h"
 
 #define CREATE_TABLE_USERS "CREATE TABLE Users(id INTEGER PRIMARY KEY NOT NULL,login VARCHAR(20) NOT NULL,password VARCHAR(40) NOT NULL)"

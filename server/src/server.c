@@ -2,12 +2,22 @@
 
 static _Atomic unsigned int cli_count = 0;
 static int uid = 10;
+pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 client_t *clients[MAX_CLIENTS];
 
 void str_overwrite_stdout() {
     printf("\r%s", "> ");
     fflush(stdout);
+}
+
+bool isCommand(char *string) {
+    int i = 0;
+    while (true) {
+        if (mx_is_space(string[i]))string++;
+        else if (string[i] == '/') return true;
+        else return false;
+    }
 }
 
 void str_trim_lf(char *arr, int length) {
@@ -104,9 +114,10 @@ void *handle_client(void *arg) {
         }
 
         int receive = recv(cli->sockfd, buff_out, BUFFER_SZ, 0);
+        printf("%s\n", buff_out);
         if (receive > 0) {
             if (isCommand(buff_out)) {
-
+                runCommand(buff_out,cli->sockfd,clients_mutex);
             }
 //            if (strlen(buff_out) > 0) {
 //                send_message(buff_out, cli->uid);

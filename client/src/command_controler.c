@@ -7,8 +7,8 @@
 
 void runCommandClient(char *command,int socked) {
     REGISTER
-        char *login = NULL;
-        char *password = NULL;
+        char *login = CREATE_SIZE(char,1024);
+        char *password = CREATE_SIZE(char,1024);
         print("Creating new user");
         print("Enter login");
         scanf("%s", login);

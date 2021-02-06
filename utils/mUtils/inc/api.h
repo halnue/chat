@@ -36,13 +36,6 @@ typedef struct _message{
     bool edit;
 } Message;
 
-bool isCommand(char *string) {
-    int i = 0;
-    while (true) {
-        if (mx_is_space(string[i]))string++;
-        else if (string[i] == '/') return true;
-        else return false;
-    }
-}
+
 
 #endif //OWN_UCHAT_API_H
