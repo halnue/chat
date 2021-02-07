@@ -20,13 +20,31 @@ bool sqlTransaction(char *sql, pthread_mutex_t mutex) {
     return result;
 }
 
-void login(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
+void command_login(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
     char *sql = getPasswordSQL(login);
     void **data = CREATE_SIZE(void *, 3)
     data[0] = &userSocket;
     data[1] = password;
     data[2] = login;
     sqlTransactionCall(sql, mutex, callbackLogin, data);
+}
+
+void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
+    char *sql = insertUsersSQL(create_user(login,password));
+    if (sqlTransaction(sql, mutex)){
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "406", "This login is used"), userSocket);
+    } else{
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "200", login), userSocket);
+    }
+}
+
+void command_massage(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
+    char *sql = insertUsersSQL(create_user(login,password));
+    if (sqlTransaction(sql, mutex)){
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "406", "This login is used"), userSocket);
+    } else{
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "200", login), userSocket);
+    }
 }
 
 bool sqlTransactionCall(char *sql, pthread_mutex_t mutex, int (*callback)(void *, int, char **, char **), void *data) {

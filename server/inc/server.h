@@ -35,7 +35,8 @@ void runCommand(char *command,int socked,pthread_mutex_t mutex);
 
 bool sqlTransaction(char *sql,pthread_mutex_t mutex);
 bool sqlTransactionCall(char *sql,pthread_mutex_t mutex,int (*callback)(void*,int,char**,char**),void *data);
-void login(char *login, char *password, int userSocket, pthread_mutex_t mutex);
+void command_login(char *login, char *password, int userSocket, pthread_mutex_t mutex);
+void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex);
 
 void send_message(char *s, int uid);
 #endif //OWN_UCHAT_SERVER_H

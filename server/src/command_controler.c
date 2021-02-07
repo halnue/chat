@@ -54,9 +54,9 @@ void runCommand(char *command, int socked,pthread_mutex_t mutex) {
     mx_strcpy(str, command);
     char **parsCommand = toCommandWithArg(str);
     if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
-        send(socked, command, strlen(command), 0);
+        command_register(parsCommand[1],parsCommand[2],socked,mutex);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOGIN) == 0) {
-        login(parsCommand[1],parsCommand[2],socked,mutex);
+        command_login(parsCommand[1],parsCommand[2],socked,mutex);
     } else {
         printf("Unknown command %s", parsCommand[0]);
     }
