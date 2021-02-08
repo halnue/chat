@@ -49,14 +49,16 @@ char *recv_socked(int socked) {
 //
 //    }
 //}
-void runCommand(char *command, int socked,pthread_mutex_t mutex) {
+void runCommand(char *command, int socked,pthread_mutex_t mutex,client_t *cli) {
     char *str = CREATE_SIZE(char, mx_arrlen(&command));
     mx_strcpy(str, command);
     char **parsCommand = toCommandWithArg(str);
     if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
         command_register(parsCommand[1],parsCommand[2],socked,mutex);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOGIN) == 0) {
-        command_login(parsCommand[1],parsCommand[2],socked,mutex);
+        command_login(parsCommand[1],parsCommand[2],cli,mutex);
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_MESSAGE) == 0) {
+
     } else {
         printf("Unknown command %s", parsCommand[0]);
     }

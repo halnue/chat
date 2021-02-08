@@ -6,7 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/mburenko/Documents/own_uchat/client/src/client.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/client.c.o"
   "/Users/mburenko/Documents/own_uchat/client/src/command_controler.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/command_controler.c.o"
+  "/Users/mburenko/Documents/own_uchat/client/src/controller_command_response.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/controller_command_response.c.o"
   "/Users/mburenko/Documents/own_uchat/client/src/printer.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/printer.c.o"
+  "/Users/mburenko/Documents/own_uchat/client/src/response_server.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/response_server.c.o"
   "/Users/mburenko/Documents/own_uchat/client/src/string_api.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/client/src/string_api.c.o"
   "/Users/mburenko/Documents/own_uchat/main.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/main.c.o"
   "/Users/mburenko/Documents/own_uchat/server/src/command_controler.c" "/Users/mburenko/Documents/own_uchat/cmake-build-debug/CMakeFiles/own_uchat.dir/server/src/command_controler.c.o"

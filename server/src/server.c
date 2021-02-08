@@ -1,7 +1,7 @@
 #include "../inc/server.h"
 
 static _Atomic unsigned int cli_count = 0;
-static int uid = 10;
+
 pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 client_t *clients[MAX_CLIENTS];
@@ -74,6 +74,23 @@ void send_message(char *s, int uid) {
 
     for (int i = 0; i < MAX_CLIENTS; ++i) {
         if (clients[i]) {
+            if (clients[i]->uid == uid) {
+                if (write(clients[i]->sockfd, s, strlen(s)) < 0) {
+                    perror("ERROR: write to descriptor failed");
+                    break;
+                }
+            }
+        }
+    }
+
+    pthread_mutex_unlock(&clients_mutex);
+}
+
+void send_messages(char *s, int uid) {
+    pthread_mutex_lock(&clients_mutex);
+
+    for (int i = 0; i < MAX_CLIENTS; ++i) {
+        if (clients[i]) {
             if (clients[i]->uid != uid) {
                 if (write(clients[i]->sockfd, s, strlen(s)) < 0) {
                     perror("ERROR: write to descriptor failed");
@@ -89,22 +106,22 @@ void send_message(char *s, int uid) {
 /* Handle all communication with the client */
 void *handle_client(void *arg) {
     char buff_out[BUFFER_SZ];
-    char name[32];
+//    char name[32];
     int leave_flag = 0;
 
     cli_count++;
     client_t *cli = (client_t *) arg;
 
     // Name
-    if (recv(cli->sockfd, name, 32, 0) <= 0 || strlen(name) < 2 || strlen(name) >= 32 - 1) {
-        printf("Didn't enter the name.\n");
-        leave_flag = 1;
-    } else {
-        strcpy(cli->name, name);
-        sprintf(buff_out, "%s has joined\n", cli->name);
-        printf("%s", buff_out);
-        send_message(buff_out, cli->uid);
-    }
+//    if (recv(cli->sockfd, name, 32, 0) <= 0 || strlen(name) < 2 || strlen(name) >= 32 - 1) {
+//        printf("Didn't enter the name.\n");
+//        leave_flag = 1;
+//    } else {
+//        strcpy(cli->name, name);
+//        sprintf(buff_out, "%s has joined\n", cli->name);
+//        printf("%s", buff_out);
+//        send_message(buff_out, cli->uid);
+//    }
 
     bzero(buff_out, BUFFER_SZ);
 
@@ -117,14 +134,14 @@ void *handle_client(void *arg) {
         printf("%s\n", buff_out);
         if (receive > 0) {
             if (isCommand(buff_out)) {
-                runCommand(buff_out,cli->sockfd,clients_mutex);
+                runCommand(buff_out,cli->sockfd,clients_mutex,cli);
             }
-//            if (strlen(buff_out) > 0) {
-//                send_message(buff_out, cli->uid);
-//
-//                str_trim_lf(buff_out, strlen(buff_out));
-//                printf("%s -> %s\n", buff_out, cli->name);
-//            }
+            else if (strlen(buff_out) > 0) {
+                send_message(buff_out, cli->uid);
+
+                str_trim_lf(buff_out, strlen(buff_out));
+                printf("%s -> %s\n", buff_out, cli->name);
+            }
         } else if (receive == 0 || strcmp(buff_out, "exit") == 0) {
             sprintf(buff_out, "%s has left\n", cli->name);
             printf("%s", buff_out);
@@ -210,7 +227,7 @@ int main() {
         client_t *cli = (client_t *) malloc(sizeof(client_t));
         cli->address = cli_addr;
         cli->sockfd = connfd;
-        cli->uid = uid++;
+        cli->uid = -1;
 
         /* Add client to the queue and fork thread */
         queue_add(cli);

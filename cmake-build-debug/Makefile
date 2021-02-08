@@ -197,6 +197,33 @@ client/src/command_controler.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_controler.c.s
 .PHONY : client/src/command_controler.c.s
 
+client/src/controller_command_response.o: client/src/controller_command_response.c.o
+
+.PHONY : client/src/controller_command_response.o
+
+# target to build an object file
+client/src/controller_command_response.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/controller_command_response.c.o
+.PHONY : client/src/controller_command_response.c.o
+
+client/src/controller_command_response.i: client/src/controller_command_response.c.i
+
+.PHONY : client/src/controller_command_response.i
+
+# target to preprocess a source file
+client/src/controller_command_response.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/controller_command_response.c.i
+.PHONY : client/src/controller_command_response.c.i
+
+client/src/controller_command_response.s: client/src/controller_command_response.c.s
+
+.PHONY : client/src/controller_command_response.s
+
+# target to generate assembly for a file
+client/src/controller_command_response.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/controller_command_response.c.s
+.PHONY : client/src/controller_command_response.c.s
+
 client/src/printer.o: client/src/printer.c.o
 
 .PHONY : client/src/printer.o
@@ -223,6 +250,33 @@ client/src/printer.s: client/src/printer.c.s
 client/src/printer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/printer.c.s
 .PHONY : client/src/printer.c.s
+
+client/src/response_server.o: client/src/response_server.c.o
+
+.PHONY : client/src/response_server.o
+
+# target to build an object file
+client/src/response_server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/response_server.c.o
+.PHONY : client/src/response_server.c.o
+
+client/src/response_server.i: client/src/response_server.c.i
+
+.PHONY : client/src/response_server.i
+
+# target to preprocess a source file
+client/src/response_server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/response_server.c.i
+.PHONY : client/src/response_server.c.i
+
+client/src/response_server.s: client/src/response_server.c.s
+
+.PHONY : client/src/response_server.s
+
+# target to generate assembly for a file
+client/src/response_server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/response_server.c.s
+.PHONY : client/src/response_server.c.s
 
 client/src/string_api.o: client/src/string_api.c.o
 
@@ -536,9 +590,15 @@ help:
 	@echo "... client/src/command_controler.o"
 	@echo "... client/src/command_controler.i"
 	@echo "... client/src/command_controler.s"
+	@echo "... client/src/controller_command_response.o"
+	@echo "... client/src/controller_command_response.i"
+	@echo "... client/src/controller_command_response.s"
 	@echo "... client/src/printer.o"
 	@echo "... client/src/printer.i"
 	@echo "... client/src/printer.s"
+	@echo "... client/src/response_server.o"
+	@echo "... client/src/response_server.i"
+	@echo "... client/src/response_server.s"
 	@echo "... client/src/string_api.o"
 	@echo "... client/src/string_api.i"
 	@echo "... client/src/string_api.s"

@@ -31,5 +31,12 @@ char *rm_first_spas(char *string);
 
 
 void runCommandClient(char *command,int socked);
+void runCommandServer(char *command);
+
+//  controller server response
+void response_login_ok(char *login);
+void response_login_error(char *code,char *message);
+void response_register_ok(char *login);
+void response_register_error(char *code,char *message);
 
 #endif //OWN_UCHAT_CLIENT_H

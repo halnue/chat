@@ -82,10 +82,10 @@ void *send_msg_handler() {
                 break;
             } else runCommandClient(message,sockfd);
         } else {
-            if (isLogin) {
+//            if (isLogin) {
                 sprintf(buffer, "%s: %s\n", name, message);
                 send(sockfd, buffer, strlen(buffer), 0);
-            }
+//            }
         }
 
         bzero(message, LENGTH);
@@ -124,16 +124,16 @@ int main() {
 
     signal(SIGINT, catch_ctrl_c_and_exit);
 
-    printf("Please enter your name: ");
-    fgets(name, 32, stdin);
-
-    str_trim_lf(name, strlen(name));
-
-
-    if (strlen(name) > 32 || strlen(name) < 2) {
-        printf("Name must be less than 30 and more than 2 characters.\n");
-        return EXIT_FAILURE;
-    }
+//    printf("Please enter your name: ");
+//    fgets(name, 32, stdin);
+//
+//    str_trim_lf(name, strlen(name));
+//
+//
+//    if (strlen(name) > 32 || strlen(name) < 2) {
+//        printf("Name must be less than 30 and more than 2 characters.\n");
+//        return EXIT_FAILURE;
+//    }
 
     struct sockaddr_in server_addr;
 
@@ -152,9 +152,9 @@ int main() {
     }
 
     // Send name
-    send(sockfd, name, 32, 0);
+//    send(sockfd, name, 32, 0);
 
-    printf("=== WELCOME TO THE CHATROOM ===\n");
+//    printf("=== WELCOME TO THE CHATROOM ===\n");
 
     pthread_t send_msg_thread;
     if (pthread_create(&send_msg_thread, NULL, &send_msg_handler, NULL) != 0) {

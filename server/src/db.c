@@ -20,30 +20,35 @@ bool sqlTransaction(char *sql, pthread_mutex_t mutex) {
     return result;
 }
 
-void command_login(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
+void command_login(char *login, char *password, client_t *cli, pthread_mutex_t mutex) {
     char *sql = getPasswordSQL(login);
     void **data = CREATE_SIZE(void *, 3)
-    data[0] = &userSocket;
+    data[0] = &cli;
     data[1] = password;
     data[2] = login;
     sqlTransactionCall(sql, mutex, callbackLogin, data);
 }
 
+void command_message(char *message, client_t *cli, pthread_mutex_t mutex) {
+    char *sql = insertMessageSQL(create_message(cli->uid,message,time(NULL)));
+    sqlTransaction(sql, mutex);
+}
+
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
     char *sql = insertUsersSQL(create_user(login,password));
     if (sqlTransaction(sql, mutex)){
-        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "406", "This login is used"), userSocket);
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, RESPONSE_406, "This login is used"), userSocket);
     } else{
-        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "200", login), userSocket);
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, RESPONSE_200, login), userSocket);
     }
 }
 
 void command_massage(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
     char *sql = insertUsersSQL(create_user(login,password));
     if (sqlTransaction(sql, mutex)){
-        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "406", "This login is used"), userSocket);
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, RESPONSE_406, "This login is used"), userSocket);
     } else{
-        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, "200", login), userSocket);
+        send_message(response(COMMAND_RESPONSE_SERVER_REGISTER, RESPONSE_200, login), userSocket);
     }
 }
 
@@ -74,16 +79,18 @@ char * str_trim_lf1(char *arr) {
 }
 
 static int callbackLogin(void *data, int argc, char **argv, char **azColName) {
-    int socket = *(int *) ((void **) data)[0];
+    client_t *cli = (client_t *) ((void **) data)[0];
     char *password = str_trim_lf1((char *) ((void **) data)[1]);
     char *login = str_trim_lf1((char *) ((void **) data)[2]);
     printf("%s %s",login,password);
     if (mx_strlen(argv[0]) == 0) {
-        send_message(response(COMMAND_RESPONSE_SERVER_LOGIN, "404", "Invalid password"), socket);
+        send_message(response(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_404, "Invalid login"), cli->uid);
     } else if (mx_strcmp(argv[0], password) == 0) {
-        send_message(response(COMMAND_RESPONSE_SERVER_LOGIN, "200", login), socket);
+        send_message(response(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_200, login), cli->sockfd);
+        cli->name = login;
+        cli->uid = atoi(argv[0]);
     } else {
-        send_message(response(COMMAND_RESPONSE_SERVER_LOGIN, "412", "Invalid password"), socket);
+        send_message(response(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_412, "Invalid password"), cli->uid);
     }
     return argc - argc + mx_strlen(azColName[0]?"":"0") - mx_strlen(azColName[0]?"":"0");
 }

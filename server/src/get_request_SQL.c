@@ -15,7 +15,7 @@ char *insertMessageSQL(Message *msg) {
 
 char *getPasswordSQL(char *login) {
     char *buff = CREATE_SIZE(char ,50+LENGTH_LOGIN);
-    sprintf(buff, "SELECT password FROM Users WHERE login = '%s'",login);
+    sprintf(buff, "SELECT password, id FROM Users WHERE login = '%s'",login);
     return buff;
 }
 

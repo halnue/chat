@@ -14,8 +14,14 @@
 #define COMMAND_CLIENT_REGISTER "/register"
 #define COMMAND_CLIENT_LOGIN "/login"
 #define COMMAND_CLIENT_EXIT "/exit"
+#define COMMAND_CLIENT_MESSAGE "/message"
 #define COMMAND_RESPONSE_SERVER_LOGIN "/login"
 #define COMMAND_RESPONSE_SERVER_REGISTER "/register"
+
+#define RESPONSE_200 "200"
+#define RESPONSE_404 "404"
+#define RESPONSE_406 "406"
+#define RESPONSE_412 "412"
 
 
 #define LOGIN }if (strcmp(command,COMMAND_CLIENT_LOGIN) == 0){

@@ -18,15 +18,15 @@ char **toCommandWithArg1(char *command) {
     return res;
 }
 
-void  printArr1(char **arr){
-        int i = 0;
+void printArr1(char **arr) {
+    int i = 0;
 
-        while(arr[i]) {
-            printf("%s\n",arr[i]);
-            i++;
-        }
-        if (i > 0)
-            mx_printstr("\n");
+    while (arr[i]) {
+        printf("%s\n", arr[i]);
+        i++;
+    }
+    if (i > 0)
+        mx_printstr("\n");
 
 }
 
@@ -37,13 +37,7 @@ void runCommandClient(char *command, int socked) {
     if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
         send(socked, command, strlen(command), 0);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOGIN) == 0) {
-        char *login = NULL;
-        char *password = NULL;
-        scanf("%s", login);
-        scanf("%s", password);
         send(socked, command, strlen(command), 0);
-        send(socked, login, strlen(login), 0);
-        send(socked, password, strlen(password), 0);
     } else {
         printf("Unknown command %s", parsCommand[0]);
     }
@@ -53,4 +47,26 @@ void runCommandClient(char *command, int socked) {
 bool isCommandExit(char *command) {
     if (strcmp(command, COMMAND_CLIENT_EXIT) == 0) return true;
     return false;
+}
+
+void runCommandServer(char *command) {
+    char *str = CREATE_SIZE(char, mx_arrlen(&command));
+    mx_strcpy(str, command);
+    char **parsCommand = toCommandWithArg1(str);
+    if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_REGISTER) == 0) {
+        if (strcmp(parsCommand[1], RESPONSE_200) == 0) {
+            response_register_ok(parsCommand[2]);
+        } else {
+            response_register_error(parsCommand[1], parsCommand[2]);
+        }
+    } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_LOGIN) == 0) {
+        if (strcmp(parsCommand[1], RESPONSE_200) == 0) {
+            response_login_ok(parsCommand[2]);
+        } else {
+            response_login_error(parsCommand[1], parsCommand[2]);
+        }
+    } else {
+        printf("Unknown command %s", parsCommand[0]);
+    }
+
 }

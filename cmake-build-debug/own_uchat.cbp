@@ -87,7 +87,13 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/command_controler.c">
 			<Option target="own_uchat"/>
 		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/controller_command_response.c">
+			<Option target="own_uchat"/>
+		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/printer.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/response_server.c">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/string_api.c">
