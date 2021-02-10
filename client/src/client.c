@@ -66,9 +66,9 @@ void *send_msg_handler() {
     char message[LENGTH];
     char buffer[LENGTH + 32];
 
-    char *tmp = "/login user 123";
+//    char *tmp = "/login user 123";
 
-    send(sockfd, tmp, strlen(tmp), 0);
+//    send(sockfd, tmp, strlen(tmp), 0);
 
     while (1) {
 
@@ -82,10 +82,10 @@ void *send_msg_handler() {
                 break;
             } else runCommandClient(message,sockfd);
         } else {
-//            if (isLogin) {
+            if (isLogin) {
                 sprintf(buffer, "%s: %s\n", name, message);
-                send(sockfd, buffer, strlen(buffer), 0);
-//            }
+                runCommandClientMessage(message,sockfd);
+            }
         }
 
         bzero(message, LENGTH);
@@ -99,9 +99,11 @@ void *recv_msg_handler() {
     char message[LENGTH];
     while (1) {
         int receive = recv(sockfd, message, LENGTH, 0);
+//        printf("message :%s \n recv: %d", message,receive);
         if (receive > 0) {
-            printf("%s", message);
+            printf("recv_msg_handler = %s", message);
             str_overwrite_stdout();
+            runCommandServer(message);
         } else if (receive == 0) {
             break;
         } else {

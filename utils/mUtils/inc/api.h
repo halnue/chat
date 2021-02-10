@@ -23,6 +23,8 @@
 #define RESPONSE_406 "406"
 #define RESPONSE_412 "412"
 
+#define SIZE_MESSAGE 512
+
 
 #define LOGIN }if (strcmp(command,COMMAND_CLIENT_LOGIN) == 0){
 #define REGISTER if (strcmp(command,COMMAND_CLIENT_REGISTER) == 0){

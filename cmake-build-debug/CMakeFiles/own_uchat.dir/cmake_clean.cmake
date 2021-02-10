@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/own_uchat.dir/client/src/client.c.o"
   "CMakeFiles/own_uchat.dir/client/src/command_controler.c.o"
-  "CMakeFiles/own_uchat.dir/client/src/controller_command_response.c.o"
   "CMakeFiles/own_uchat.dir/client/src/printer.c.o"
   "CMakeFiles/own_uchat.dir/client/src/response_server.c.o"
   "CMakeFiles/own_uchat.dir/client/src/string_api.c.o"

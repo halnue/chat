@@ -14,6 +14,7 @@ bool isCommand(char *string) {
 }
 
 
+
 char **toCommandWithArg(char *command){
     char **res = CREATE_SIZE(char *,10)
     int size = 0;

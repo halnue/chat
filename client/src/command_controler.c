@@ -38,10 +38,21 @@ void runCommandClient(char *command, int socked) {
         send(socked, command, strlen(command), 0);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOGIN) == 0) {
         send(socked, command, strlen(command), 0);
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_MESSAGE) == 0) {
+        send(socked, command, strlen(command), 0);
     } else {
         printf("Unknown command %s", parsCommand[0]);
     }
-    print("fin");
+//    print("fin");
+}
+
+void runCommandClientMessage(char *message, int socked) {
+//    int i = mx_strlen(message);
+//    FOR(0,i/SIZE_MESSAGE){
+        char *buffer  = CREATE_SIZE(char,SIZE_MESSAGE);
+        sprintf(buffer, "%s %s", COMMAND_CLIENT_MESSAGE, message);
+        send(socked, buffer, strlen(buffer), 0);
+//    }
 }
 
 bool isCommandExit(char *command) {
@@ -53,6 +64,7 @@ void runCommandServer(char *command) {
     char *str = CREATE_SIZE(char, mx_arrlen(&command));
     mx_strcpy(str, command);
     char **parsCommand = toCommandWithArg1(str);
+    printf("runCommandServer = %s", parsCommand[0]);
     if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_REGISTER) == 0) {
         if (strcmp(parsCommand[1], RESPONSE_200) == 0) {
             response_register_ok(parsCommand[2]);
@@ -60,13 +72,15 @@ void runCommandServer(char *command) {
             response_register_error(parsCommand[1], parsCommand[2]);
         }
     } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_LOGIN) == 0) {
+        printf("else if = %s", parsCommand[1]);
         if (strcmp(parsCommand[1], RESPONSE_200) == 0) {
+            printf("code 20 = %s", parsCommand[2]);
             response_login_ok(parsCommand[2]);
         } else {
             response_login_error(parsCommand[1], parsCommand[2]);
         }
     } else {
-        printf("Unknown command %s", parsCommand[0]);
+        printf("Unknown command %s\n", parsCommand[0]);
     }
-
 }
+

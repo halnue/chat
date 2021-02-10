@@ -31,6 +31,7 @@ char *rm_first_spas(char *string);
 
 
 void runCommandClient(char *command,int socked);
+void runCommandClientMessage(char *message, int socked);
 void runCommandServer(char *command);
 
 //  controller server response

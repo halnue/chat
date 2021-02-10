@@ -68,15 +68,14 @@ void queue_remove(int uid) {
     pthread_mutex_unlock(&clients_mutex);
 }
 
-/* Send message to all clients except sender */
 void send_message(char *s, int uid) {
     pthread_mutex_lock(&clients_mutex);
 
     for (int i = 0; i < MAX_CLIENTS; ++i) {
         if (clients[i]) {
-            if (clients[i]->uid == uid) {
-                if (write(clients[i]->sockfd, s, strlen(s)) < 0) {
-                    perror("ERROR: write to descriptor failed");
+            if (clients[i]->uid != -1 && clients[i]->uid == uid) {
+                if (send(clients[i]->sockfd, s, strlen(s), 0) < 0) {
+                    perror("ERROR: write to descriptor failed\n");
                     break;
                 }
             }
@@ -86,14 +85,41 @@ void send_message(char *s, int uid) {
     pthread_mutex_unlock(&clients_mutex);
 }
 
+/* Send message to all clients except sender */
 void send_messages(char *s, int uid) {
     pthread_mutex_lock(&clients_mutex);
 
     for (int i = 0; i < MAX_CLIENTS; ++i) {
         if (clients[i]) {
-            if (clients[i]->uid != uid) {
-                if (write(clients[i]->sockfd, s, strlen(s)) < 0) {
-                    perror("ERROR: write to descriptor failed");
+            if (clients[i]->uid != -1 && clients[i]->uid != uid) {
+                if (send(clients[i]->sockfd, s, strlen(s), 0) < 0) {
+                    perror("ERROR: write to descriptor failed\n");
+                    break;
+                }
+            }
+        }
+    }
+
+    pthread_mutex_unlock(&clients_mutex);
+}
+
+void send_command(char *s, int sockfd) {
+    printf("Sending command  %s\n", s);
+    int code = send(sockfd, s, strlen(s), 0);
+    if ( code < 0) {
+        perror("ERROR: write to descriptor failed\n");
+    }
+}
+
+/* Send command to all clients except sender */
+void command_to_all(char *s, int sockfd) {
+    pthread_mutex_lock(&clients_mutex);
+
+    for (int i = 0; i < MAX_CLIENTS; ++i) {
+        if (clients[i]) {
+            if (clients[i]->sockfd != sockfd) {
+                if (send(clients[i]->sockfd, s, strlen(s), 0) < 0) {
+                    perror("ERROR: write to descriptor failed\n");
                     break;
                 }
             }
@@ -131,18 +157,20 @@ void *handle_client(void *arg) {
         }
 
         int receive = recv(cli->sockfd, buff_out, BUFFER_SZ, 0);
-        printf("%s\n", buff_out);
+//        printf("%s\n", buff_out);
+//        char *s = "qwwe";
+        printf("socket %d \n",cli->sockfd);
+//        send(cli->sockfd, s, strlen(s), 0);
         if (receive > 0) {
             if (isCommand(buff_out)) {
-                runCommand(buff_out,cli->sockfd,clients_mutex,cli);
-            }
-            else if (strlen(buff_out) > 0) {
+                runCommand(buff_out, cli->sockfd, clients_mutex, cli);
+            } else if (strlen(buff_out) > 0) {
                 send_message(buff_out, cli->uid);
 
                 str_trim_lf(buff_out, strlen(buff_out));
                 printf("%s -> %s\n", buff_out, cli->name);
             }
-        } else if (receive == 0 || strcmp(buff_out, "exit") == 0) {
+        } else if (receive == 0 || strcmp(buff_out, "/exit") == 0) {
             sprintf(buff_out, "%s has left\n", cli->name);
             printf("%s", buff_out);
             send_message(buff_out, cli->uid);
@@ -164,6 +192,7 @@ void *handle_client(void *arg) {
 
     return NULL;
 }
+
 //int argc, char **argv
 int main() {
 //    if (argc != 2) {
@@ -227,6 +256,7 @@ int main() {
         client_t *cli = (client_t *) malloc(sizeof(client_t));
         cli->address = cli_addr;
         cli->sockfd = connfd;
+        cli->name = "guest";
         cli->uid = -1;
 
         /* Add client to the queue and fork thread */

@@ -40,5 +40,8 @@ void command_login(char *login, char *password, client_t *cli, pthread_mutex_t m
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex);
 void command_message(char *message, client_t *cli, pthread_mutex_t mutex);
 
-void send_message(char *s, int uid);
+void send_message(char *s, int uid);// send message to authorization user with this uid
+void send_messages(char *s, int uid);// send message to all authorization users without this uid
+void send_command(char *s, int sockfd);// send message to user with this sockfd
+void command_to_all(char *s, int sockfd);// send message to all users without this sockfd
 #endif //OWN_UCHAT_SERVER_H

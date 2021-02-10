@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "../inc/api_db.h"
 
-char *insertUsersSQL(User *usr){
+char *insertUsersSQL(char *login, char *password){
     char* buff = CREATE_SIZE(char ,130);;
-    sprintf(buff, "%s%s%s%s%s","INSERT INTO Users(LOGIN, PASSWORD) VALUES ('", usr->login, "','", usr->password, "')");
+    sprintf(buff, "%s%s%s%s%s","INSERT INTO Users(LOGIN, PASSWORD) VALUES ('", login, "','", password, "')");
     return buff;
 }
 

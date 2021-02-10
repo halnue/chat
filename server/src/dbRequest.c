@@ -18,12 +18,12 @@ int dbRequest(sqlite3* db, const char *sql){
     char *zErrMsg = 0;
     int rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 
-    if( rc != SQLITE_OK ){
-        printf( "SQL error: %s\n", zErrMsg);
+    if (rc == SQLITE_OK) {
+        return true;
+    } else {
+        printf("SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
         return false;
-    } else {
-        return true;
     }
 }
 
