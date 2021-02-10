@@ -87,6 +87,7 @@ void runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli)
         printf("COMMAND_CLIENT_LOGIN %s\n", command);
         command_login(parsCommand[1], parsCommand[2], cli, mutex);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_MESSAGE) == 0) {
+        command_message(parsCommand[1],cli,mutex);
         printf("COMMAND_CLIENT_MESSAGE %s\n", command);
     } else {
         printf("Unknown command %s", parsCommand[0]);

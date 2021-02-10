@@ -35,6 +35,7 @@ Message *create_message(int idUser, char *msg, long time);
 int createNewIdUser();
 int createNewIdMassage();
 
-// response server
-char *response(char *action,char *code,char *message);
+// message server
+char *new_message(char *action, char *code, char *message);
+char *notify_message(char *action, char *userName, char *message,long time);
 #endif //OWN_UCHAT_API_DB_H

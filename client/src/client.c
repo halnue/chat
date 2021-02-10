@@ -1,6 +1,12 @@
 #include "../inc/client.h"
-#include "regex.h"
 
+bool isLogin = false;
+void setIsLogin(bool f){
+    isLogin = f;
+}
+bool getIsLogin(){
+    return isLogin;
+}
 
 bool isCommand(char *string) {
     int i = 0;
@@ -17,7 +23,6 @@ bool isCommand(char *string) {
 volatile sig_atomic_t flag = 0;
 int sockfd = 0;
 char name[32];
-bool isLogin = false;
 
 
 
@@ -82,7 +87,7 @@ void *send_msg_handler() {
                 break;
             } else runCommandClient(message,sockfd);
         } else {
-            if (isLogin) {
+            if (getIsLogin()) {
                 sprintf(buffer, "%s: %s\n", name, message);
                 runCommandClientMessage(message,sockfd);
             }

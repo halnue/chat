@@ -9,7 +9,7 @@ char *insertUsersSQL(char *login, char *password){
 
 char *insertMessageSQL(Message *msg) {
     char *buff = CREATE_SIZE(char ,1024);
-    sprintf(buff, "%s %d %s%s%s %ld %c %d %c","INSERT INTO Messages(id, idUser, Message, time, edit) VALUES (", msg->idUser, ", '", msg->message, "',", msg->time, ',', msg->edit, ')');
+    sprintf(buff, "%s %d %s%s%s %ld %c %d %c","INSERT INTO Messages(idUser, Message, time, edit) VALUES (", msg->idUser, ", '", msg->message, "',", msg->time, ',', msg->edit, ')');
     return buff;
 }
 

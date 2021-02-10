@@ -20,6 +20,8 @@
 
 #define LENGTH 2048
 
+void setIsLogin(bool f);
+bool getIsLogin();
 
 // printer
 void str_overwrite_stdout();
@@ -31,13 +33,14 @@ char *rm_first_spas(char *string);
 
 
 void runCommandClient(char *command,int socked);
-void runCommandClientMessage(char *message, int socked);
+void runCommandClientMessage(char *message, int socket);
 void runCommandServer(char *command);
 
-//  controller server response
+//  controller server message
 void response_login_ok(char *login);
 void response_login_error(char *code,char *message);
 void response_register_ok(char *login);
 void response_register_error(char *code,char *message);
+void new_messageClient(char *userName,char *message,char *time);
 
 #endif //OWN_UCHAT_CLIENT_H
