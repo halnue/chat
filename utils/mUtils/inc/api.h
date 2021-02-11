@@ -15,6 +15,7 @@
 #define COMMAND_CLIENT_LOGIN "/login"
 #define COMMAND_CLIENT_EXIT "/exit"
 #define COMMAND_CLIENT_MESSAGE "/message"
+#define COMMAND_CLIENT_EDIT "/edit"
 #define COMMAND_RESPONSE_SERVER_LOGIN "/login"
 #define COMMAND_RESPONSE_SERVER_REGISTER "/register"
 #define COMMAND_RESPONSE_SERVER_MESSAGE "/message"

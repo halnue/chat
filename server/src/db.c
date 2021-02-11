@@ -26,6 +26,7 @@ void command_login(char *login, char *password, client_t *cli, pthread_mutex_t m
     data[0] = cli;
     data[1] = password;
     data[2] = login;
+    cli->name = login;
     sqlTransactionCall(sql, mutex, callbackLogin, data);
 }
 
@@ -37,8 +38,13 @@ void command_message(char *message, client_t *cli, pthread_mutex_t mutex) {
         send_command(new_message(COMMAND_RESPONSE_SERVER_MESSAGE, RESPONSE_406, "The message can't be saved"), cli->sockfd);
     } else{
         send_command(new_message(COMMAND_RESPONSE_SERVER_MESSAGE, RESPONSE_200, ""), cli->sockfd);
-        send_messages(notify_message(COMMAND_NOTIFY_SERVER_NEW_MESSAGE,cli->name,message,lTime),cli->uid);
+        printf("message = %s ,user = %s ,time = %ld\n",message,cli->name,lTime);
+        send_messages(notify_message(COMMAND_NOTIFY_SERVER_NEW_MESSAGE,cli->name,message,lTime),cli->sockfd);
     }
+}
+
+void command_edit(char *message, client_t *cli, pthread_mutex_t mutex){
+
 }
 
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
@@ -97,7 +103,6 @@ static int callbackLogin(void *data, int argc, char **argv, char **azColName) {
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_404, "Invalid login"), cli->sockfd);
     } else if (mx_strcmp(argv[0], password) == 0) {
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_200, login), cli->sockfd);
-        cli->name = login;
         cli->uid = atoi(argv[1]);
     } else {
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_412, "Invalid password"), cli->sockfd);

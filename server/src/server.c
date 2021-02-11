@@ -86,12 +86,12 @@ void send_message(char *s, int uid) {
 }
 
 /* Send message to all clients except sender */
-void send_messages(char *s, int uid) {
+void send_messages(char *s, int sockfd) {
     pthread_mutex_lock(&clients_mutex);
 
     for (int i = 0; i < MAX_CLIENTS; ++i) {
         if (clients[i]) {
-            if (clients[i]->uid != -1 && clients[i]->uid != uid) {
+            if (clients[i]->uid != -1 && clients[i]->sockfd != sockfd) {
                 if (send(clients[i]->sockfd, s, strlen(s), 0) < 0) {
                     perror("ERROR: write to descriptor failed\n");
                     break;
