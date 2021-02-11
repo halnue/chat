@@ -150,7 +150,6 @@ int main() {
     server_addr.sin_addr.s_addr = inet_addr(ip);
     server_addr.sin_port = htons(port);
 
-
     // Connect to Server
     int err = connect(sockfd, (struct sockaddr *) &server_addr, sizeof(server_addr));
     if (err == -1) {

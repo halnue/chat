@@ -43,9 +43,9 @@ void command_message(char *message, client_t *cli, pthread_mutex_t mutex) {
     }
 }
 
-void command_edit(char *message, client_t *cli, pthread_mutex_t mutex){
-
-}
+//void command_edit(char *message, client_t *cli, pthread_mutex_t mutex){
+//    sqlTransactionCall(GET_MESSAGE_MAX_ID, mutex, callbackLogin, NULL);
+//}
 
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
     char *sql = insertUsersSQL(login,password);
@@ -110,5 +110,9 @@ static int callbackLogin(void *data, int argc, char **argv, char **azColName) {
     return argc - argc + mx_strlen(azColName[0]?"":"0") - mx_strlen(azColName[0]?"":"0");
 }
 
+//static int callbackMessageMaxId(void *data, int argc, char **argv, char **azColName){
+//    argv
+//    return argc - argc + mx_strlen(azColName[0]?"":"0") - mx_strlen(azColName[0]?"":"0");
+//}
 
 

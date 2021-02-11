@@ -15,6 +15,7 @@
 
 #define CREATE_TABLE_USERS "CREATE TABLE IF NOT EXISTS Users(id INTEGER PRIMARY KEY NOT NULL,login VARCHAR(20) NOT NULL UNIQUE,password VARCHAR(40) NOT NULL)"
 #define CREATE_TABLE_MESSAGES "CREATE TABLE IF NOT EXISTS Messages(id INTEGER PRIMARY KEY NOT NULL,idUser  INTEGER             NOT NULL,message VARCHAR(512)        NOT NULL,time    INTEGER(11)         NOT NULL,edit    BOOLEAN)"
+#define GET_MESSAGE_MAX_ID "SELECT message,max(id) FROM Messages"
 #define DB "Massager"
 
 sqlite3 *openDB(char *nameDB);
