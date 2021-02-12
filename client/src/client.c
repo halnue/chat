@@ -116,6 +116,7 @@ void *recv_msg_handler() {
         }
         memset(message, 0, sizeof(message));
     }
+
     return NULL;
 }
 
