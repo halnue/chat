@@ -68,7 +68,9 @@ void runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli)
     printf("%s\n", command);
     char *str = CREATE_SIZE(char, mx_arrlen(&command));
     mx_strcpy(str, command);
-    char **parsCommand = toCommandWithArg(str);
+
+    char **parsCommand = mx_strsplit(str,' ');
+//            toCommandWithArg(str);
     printf("command = %s, [1]= %s, [2]= %s\n", parsCommand[0], parsCommand[1], parsCommand[2]);
     if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
         printf("COMMAND_CLIENT_REGISTER %s\n", command);
@@ -84,6 +86,3 @@ void runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli)
     }
     print("fin");
 }
-
-
-

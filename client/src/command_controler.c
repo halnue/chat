@@ -33,7 +33,8 @@ void printArr1(char **arr) {
 void runCommandClient(char *command, int socked) {
     char *str = CREATE_SIZE(char, mx_arrlen(&command));
     mx_strcpy(str, command);
-    char **parsCommand = toCommandWithArg1(str);
+    char **parsCommand =mx_strsplit(str,' ');
+//            toCommandWithArg1(str);
     if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
         send(socked, command, strlen(command), 0);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOGIN) == 0) {
@@ -41,7 +42,7 @@ void runCommandClient(char *command, int socked) {
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_EDIT) == 0) {
         send(socked, command, strlen(command), 0);
     } else {
-        printf("Unknown command %s", parsCommand[0]);
+        printf("Unknown command %s\n", parsCommand[0]);
     }
 //    print("fin");
 }
@@ -65,7 +66,8 @@ void runCommandServer(char *command) {
     char *str = CREATE_SIZE(char, mx_arrlen(&command));
     mx_strcpy(str, command);
     printf("runCommandServer00\n");
-    char **parsCommand = toCommandWithArg1(str);
+    char **parsCommand = mx_strsplit(str,' ');
+//    toCommandWithArg1(str);
     printf("0 =  %s %s %s\n", parsCommand[1], parsCommand[2], parsCommand[3]);
     printf("runCommandServer = %s\n", parsCommand[0]);
     if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_REGISTER) == 0) {

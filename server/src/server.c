@@ -131,7 +131,7 @@ void command_to_all(char *s, int sockfd) {
 
 /* Handle all communication with the client */
 void *handle_client(void *arg) {
-    char buff_out[BUFFER_SZ];
+    char *buff_out = CREATE_SIZE(char ,BUFFER_SZ);
 //    char name[32];
     int leave_flag = 0;
 
@@ -149,8 +149,8 @@ void *handle_client(void *arg) {
 //        send_message(buff_out, cli->uid);
 //    }
 
-    bzero(buff_out, BUFFER_SZ);
-
+//    bzero(buff_out, BUFFER_SZ);
+    buff_out = NULL;
     while (1) {
         if (leave_flag) {
             break;
@@ -160,9 +160,13 @@ void *handle_client(void *arg) {
 //        printf("%s\n", buff_out);
 //        char *s = "qwwe";
         printf("socket %d \n",cli->sockfd);
+        printf("buff_out %s \n",buff_out);
+        printf("receive %d \n",receive);
 //        send(cli->sockfd, s, strlen(s), 0);
         if (receive > 0) {
+            printf("0");
             if (isCommand(buff_out)) {
+                printf("1");
                 runCommand(buff_out, cli->sockfd, clients_mutex, cli);
             } else if (strlen(buff_out) > 0) {
                 send_message(buff_out, cli->uid);
@@ -177,10 +181,10 @@ void *handle_client(void *arg) {
             leave_flag = 1;
         } else {
             printf("ERROR: -1\n");
-            leave_flag = 1;
+//            leave_flag = 1;
         }
-
-        bzero(buff_out, BUFFER_SZ);
+        buff_out = NULL;
+//        bzero(buff_out, BUFFER_SZ);
     }
 
     /* Delete client from queue and yield thread */
