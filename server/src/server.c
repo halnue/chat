@@ -131,7 +131,6 @@ void command_to_all(char *s, int sockfd) {
 
 /* Handle all communication with the client */
 void *handle_client(void *arg) {
-    char *buff_out = CREATE_SIZE(char ,BUFFER_SZ);
 //    char name[32];
     int leave_flag = 0;
 
@@ -150,11 +149,13 @@ void *handle_client(void *arg) {
 //    }
 
 //    bzero(buff_out, BUFFER_SZ);
-    buff_out = NULL;
+//    buff_out = NULL;
     while (1) {
+
         if (leave_flag) {
             break;
         }
+        char *buff_out = CREATE_SIZE(char ,BUFFER_SZ);
 
         int receive = recv(cli->sockfd, buff_out, BUFFER_SZ, 0);
 //        printf("%s\n", buff_out);
@@ -183,7 +184,7 @@ void *handle_client(void *arg) {
             printf("ERROR: -1\n");
 //            leave_flag = 1;
         }
-        buff_out = NULL;
+        free(buff_out);
 //        bzero(buff_out, BUFFER_SZ);
     }
 
