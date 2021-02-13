@@ -68,33 +68,35 @@ char **toCommandWithArg(char *command) {
 }
 
 void *send_msg_handler() {
-    char message[LENGTH];
-    char buffer[LENGTH + 32];
+//    char buffer[LENGTH + 32];
 
 //    char *tmp = "/login user 123";
 
 //    send(sockfd, tmp, strlen(tmp), 0);
 
     while (1) {
+        char *message = CREATE_SIZE(char ,LENGTH);
 
+//        bzero(message, LENGTH);
         str_overwrite_stdout();
         fgets(message, LENGTH, stdin);
         str_trim_lf(message, LENGTH);
 
         if (isCommand(message)) {
+            reconnect(sockfd);
 //            printArr(toCommandWithArg(message));
             if (isCommandExit(message)) {
                 break;
             } else runCommandClient(message,sockfd);
         } else {
             if (getIsLogin()) {
-                sprintf(buffer, "%s: %s\n", name, message);
+//                sprintf(buffer, "%s: %s\n", name, message);
                 runCommandClientMessage(message,sockfd);
             }
         }
 
-        bzero(message, LENGTH);
-        bzero(buffer, LENGTH + 32);
+        free(message);
+//        bzero(buffer, LENGTH + 32);
     }
     catch_ctrl_c_and_exit();
     return NULL;
@@ -186,3 +188,20 @@ int main() {
 
     return EXIT_SUCCESS;
 }
+void reconnect(int socketNum) {
+    if (send(socketNum, "",  0, 0) == -1) {
+        int sockfd = 0;
+        char *ip = "127.0.0.1";
+        int port = PORT_SERVER;
+
+        struct sockaddr_in server_addr;
+
+        sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_addr.s_addr = inet_addr(ip);
+        server_addr.sin_port = htons(port);
+
+        connect(sockfd, (struct sockaddr *) &server_addr, sizeof(server_addr));
+    }
+}
+

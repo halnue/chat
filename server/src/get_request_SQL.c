@@ -25,6 +25,12 @@ char *updateMessage(int id,char *newMessage) {
     return buff;
 }
 
+char *updateMessageMaxId(char *newMessage) {
+    char *buff = CREATE_SIZE(char ,1024);
+    sprintf(buff, "%s%s%s", "UPDATE Messages set edit = true, Message = '",newMessage,"' WHERE id = (SELECT MAX(id) FROM Messages)");
+    return buff;
+}
+
 char *updatePassword(int id,char *newPassword) {
     char *buff = CREATE_SIZE(char, 41);
     sprintf(buff, "%s%s %s %d", "UPDATE Users set password = '", newPassword,"' where id =", id);

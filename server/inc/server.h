@@ -38,6 +38,8 @@ bool sqlTransaction(char *sql,pthread_mutex_t mutex);
 bool sqlTransactionCall(char *sql,pthread_mutex_t mutex,int (*callback)(void*,int,char**,char**),void *data);
 void command_login(char *login, char *password, client_t *cli, pthread_mutex_t mutex);
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex);
+void command_delete(pthread_mutex_t mutex);
+void command_edit(char *message, pthread_mutex_t mutex);
 void command_message(char *message, client_t *cli, pthread_mutex_t mutex);
 
 void send_message(char *s, int uid);// send message to authorization user with this uid

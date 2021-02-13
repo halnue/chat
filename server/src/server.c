@@ -157,7 +157,6 @@ void *handle_client(void *arg) {
         }
         char *buff_out = CREATE_SIZE(char ,BUFFER_SZ);
 
-
         int receive = recv(cli->sockfd, buff_out, BUFFER_SZ, 0);
 //        printf("%s\n", buff_out);
 //        char *s = "qwwe";

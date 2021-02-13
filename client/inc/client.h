@@ -33,6 +33,7 @@ char *rm_first_spas(char *string);
 
 
 void runCommandClient(char *command,int socked);
+void reconnect(int socketNum);
 void runCommandClientMessage(char *message, int socket);
 void runCommandServer(char *command);
 

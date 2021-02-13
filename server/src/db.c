@@ -4,8 +4,8 @@
 #include "../inc/server.h"
 
 static int callbackLogin(void *data, int argc, char **argv, char **azColName);
-static int callbackMessageMaxIdDel(void *data, int argc, char **argv, char **azColName);
-static int callbackMessageMaxIdEdit(void *data, int argc, char **argv, char **azColName);
+//static int callbackMessageMaxIdDel(void *data, int argc, char **argv, char **azColName);
+//static int callbackMessageMaxIdEdit(void *data, int argc, char **argv, char **azColName);
 
 bool sqlTransaction(char *sql, pthread_mutex_t mutex) {
     bool result = false;
@@ -35,7 +35,7 @@ void command_login(char *login, char *password, client_t *cli, pthread_mutex_t m
 void command_message(char *message, client_t *cli, pthread_mutex_t mutex) {
     long lTime = time(NULL);
     char *sql = insertMessageSQL(create_message(cli->uid, message, lTime));
-    sqlTransaction(sql, mutex);
+//    sqlTransaction(sql, mutex);
     if (sqlTransaction(sql, mutex)) {
         send_command(new_message(COMMAND_RESPONSE_SERVER_MESSAGE, RESPONSE_406, "The message can't be saved"),
                      cli->sockfd);
@@ -47,13 +47,12 @@ void command_message(char *message, client_t *cli, pthread_mutex_t mutex) {
 }
 
 void command_edit(char *message, pthread_mutex_t mutex) {
-    void *data = message;
-    sqlTransactionCall(GET_MESSAGE_MAX_ID, mutex, callbackMessageMaxIdEdit, data);
+    char *sql = updateMessageMaxId(message);
+    sqlTransaction(sql, mutex);
 }
 
-void command_delete(char *message, pthread_mutex_t mutex) {
-    void *data = message;
-    sqlTransactionCall(GET_MESSAGE_MAX_ID, mutex, callbackMessageMaxIdDel, data);
+void command_delete(pthread_mutex_t mutex) {
+    sqlTransaction(DELETE_MESSAGE_MAX_ID, mutex);
 }
 
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
@@ -110,28 +109,30 @@ static int callbackLogin(void *data, int argc, char **argv, char **azColName) {
     printf("socket %d \n", cli->sockfd);
     if (mx_strlen(argv[0]) == 0) {
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_404, "Invalid login"), cli->sockfd);
+        cli->name = "guest";
     } else if (mx_strcmp(argv[0], password) == 0) {
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_200, login), cli->sockfd);
         cli->uid = atoi(argv[1]);
     } else {
+        cli->name = "guest";
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_412, "Invalid password"), cli->sockfd);
     }
     return argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
 }
-
-static int callbackMessageMaxIdEdit(void *data, int argc, char **argv, char **azColName) {
-    char *message = (char *)data;
-    pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
-    char *sql = updateMessage(atoi(argv[0]), message);
-    sqlTransaction(sql, clients_mutex);
-    return argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
-}
-
-static int callbackMessageMaxIdDel(void *data, int argc, char **argv, char **azColName) {
-    pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
-    char *sql = deleteMessage(atoi(argv[0]));
-    sqlTransaction(sql, clients_mutex);
-    return (int *)data-(int *)data+argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
-}
+//
+//static int callbackMessageMaxIdEdit(void *data, int argc, char **argv, char **azColName) {
+//    char *message = (char *)data;
+//    pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
+//    char *sql = updateMessage(atoi(argv[0]), message);
+//    sqlTransaction(sql, clients_mutex);
+//    return argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
+//}
+//
+//static int callbackMessageMaxIdDel(void *data, int argc, char **argv, char **azColName) {
+//    pthread_mutex_t clients_mutex = PTHREAD_MUTEX_INITIALIZER;
+//    char *sql = deleteMessage(atoi(argv[0]));
+//    sqlTransaction(sql, clients_mutex);
+//    return (int *)data-(int *)data+argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
+//}
 
 

@@ -71,17 +71,31 @@ void runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli)
 
     char **parsCommand = mx_strsplit(str,' ');
 //            toCommandWithArg(str);
-    printf("command = %s, [1]= %s, [2]= %s\n", parsCommand[0], parsCommand[1], parsCommand[2]);
+//    printf("command = %s, [1]= %s, [2]= %s\n", parsCommand[0], parsCommand[1], parsCommand[2]);
     if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
         printf("COMMAND_CLIENT_REGISTER %s\n", command);
         command_register(parsCommand[1], parsCommand[2], socked, mutex);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOGIN) == 0) {
         printf("COMMAND_CLIENT_LOGIN %s\n", command);
         command_login(parsCommand[1], parsCommand[2], cli, mutex);
-    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_MESSAGE) == 0) {
-        command_message(parsCommand[1], cli, mutex);
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_EDIT) == 0) {
+        printf("command_edit");
+        command_edit(parsCommand[1],mutex);
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_DEL) == 0) {
+        printf("command_delete");
+        command_delete(mutex);
+    } else if (strcmp(parsCommand[0], "/message") == 0) {
+        char **parsCommandMessage = mx_strsplit(str,'|');
+        printf("\n2\n");
+        command_message(parsCommandMessage[1], cli, mutex);
         printf("COMMAND_CLIENT_MESSAGE %s\n", command);
     } else {
+        char **parsCommandMessage = mx_strsplit(str,'|');
+        printf("\n2\n");
+        if (strcmp(parsCommand[0], COMMAND_CLIENT_MESSAGE) == 0){
+            command_message(parsCommandMessage[1], cli, mutex);
+            printf("else COMMAND_CLIENT_MESSAGE %s\n", command);
+        } else
         printf("Unknown command %s", parsCommand[0]);
     }
     print("fin");

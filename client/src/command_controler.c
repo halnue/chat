@@ -41,6 +41,8 @@ void runCommandClient(char *command, int socked) {
         send(socked, command, strlen(command), 0);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_EDIT) == 0) {
         send(socked, command, strlen(command), 0);
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_DEL) == 0) {
+        send(socked, command, strlen(command), 0);
     } else {
         printf("Unknown command %s\n", parsCommand[0]);
     }
@@ -51,8 +53,11 @@ void runCommandClientMessage(char *message, int socket) {
 //    int i = mx_strlen(message);
 //    FOR(0,i/SIZE_MESSAGE){
     char *buffer = CREATE_SIZE(char, strlen(message) + 9);
-    sprintf(buffer, "%s %s", COMMAND_CLIENT_MESSAGE, message);
+    sprintf(buffer, "%s|%s", COMMAND_CLIENT_MESSAGE, message);
+    printf("sending");
     send(socket, buffer, strlen(buffer), 0);
+    printf("is send data");
+    return;
 //    }
 }
 
@@ -62,14 +67,14 @@ bool isCommandExit(char *command) {
 }
 
 void runCommandServer(char *command) {
-    printf("runCommandServer0\n");
+//    printf("runCommandServer0\n");
     char *str = CREATE_SIZE(char, mx_arrlen(&command));
     mx_strcpy(str, command);
-    printf("runCommandServer00\n");
+//    printf("runCommandServer00\n");
     char **parsCommand = mx_strsplit(str,' ');
 //    toCommandWithArg1(str);
-    printf("0 =  %s %s %s\n", parsCommand[1], parsCommand[2], parsCommand[3]);
-    printf("runCommandServer = %s\n", parsCommand[0]);
+//    printf("0 =  %s %s %s\n", parsCommand[1], parsCommand[2], parsCommand[3]);
+//    printf("runCommandServer = %s\n", parsCommand[0]);
     if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_REGISTER) == 0) {
         if (strcmp(parsCommand[1], RESPONSE_200) == 0) {
             response_register_ok(parsCommand[2]);
@@ -85,15 +90,34 @@ void runCommandServer(char *command) {
             response_login_error(parsCommand[1], parsCommand[2]);
         }
     } else if (strcmp(parsCommand[0], COMMAND_NOTIFY_SERVER_NEW_MESSAGE) == 0) {
-        printf(" COMMAND_NOTIFY_SERVER_NEW_MESSAGE %s %s %s\n", parsCommand[1], parsCommand[2], parsCommand[3]);
-        time_t t = atol(parsCommand[3]);
+        char **parsCommandMessage = mx_strsplit(command,'|');
+//        printf(" COMMAND_NOTIFY_SERVER_NEW_MESSAGE %s %s %s\n", parsCommandMessage[1], parsCommandMessage[2], parsCommandMessage[3]);
+        time_t t = atol(parsCommandMessage[2]);
         char *sTime = CREATE_SIZE(char, 26)
-        printf("code 100 = %s\n", parsCommand[2]);
+//        printf("code 100 = %s\n", parsCommandMessage[2]);
         ctime_r(&t, sTime);
-        new_messageClient(parsCommand[1], parsCommand[2], sTime);
+        new_messageClient(parsCommandMessage[1], parsCommandMessage[3], sTime);
 //        response_login_error(parsCommand[1], parsCommand[2]);
+    } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_MESSAGE) == 0) {
+//        char **parsCommandMessage = mx_strsplit(command,'|');
+//        printf(" COMMAND_NOTIFY_SERVER_NEW_MESSAGE %s %s %s\n", parsCommandMessage[1], parsCommandMessage[2], parsCommandMessage[3]);
+//        time_t t = atol(parsCommandMessage[2]);
+//        char *sTime = CREATE_SIZE(char, 26)
+//        printf("code 100 = %s\n", parsCommandMessage[2]);
+//        ctime_r(&t, sTime);
+//        new_messageClient(parsCommandMessage[1], parsCommandMessage[3], sTime);
     } else {
-        printf("Unknown command %s\n", parsCommand[0]);
+        char **parsCommandMessage = mx_strsplit(command,'|');
+//        printf(" COMMAND_NOTIFY_SERVER_NEW_MESSAGE %s %s %s\n", parsCommandMessage[1], parsCommandMessage[2], parsCommandMessage[3]);
+        if (strcmp(parsCommandMessage[0], COMMAND_NOTIFY_SERVER_NEW_MESSAGE) == 0) {
+             long l = atol(parsCommandMessage[2]);
+            time_t t = l;
+            char *sTime = CREATE_SIZE(char, 26)
+//            printf("code 100 = %s\n", parsCommandMessage[2]);
+            ctime_r(&t, sTime);
+            new_messageClient(parsCommandMessage[1], parsCommandMessage[3], sTime);
+        } else{}
+//        printf("Unknown command %s\n", parsCommandMessage[0]);
     }
     str_overwrite_stdout();
 }
