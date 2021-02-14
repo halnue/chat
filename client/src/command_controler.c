@@ -81,20 +81,23 @@ void runCommandServer(char *command) {
         char **parsCommandMessage = mx_strsplit(command, '|');
         char *login = parsCommandMessage[1];
         long time = atol(parsCommandMessage[2]);
-        bool edit = atoi(parsCommandMessage[3]);
-        char *message = parsCommandMessage[4];
+        bool edit = false;
+        char *message = parsCommandMessage[3];
         char *sTime = mx_strnew( 26);
         ctime_r(&time, sTime);
         new_messageClient(login,message,sTime,edit);
 //        response_login_error(parsCommand[1], parsCommand[2]);
     } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_MESSAGE) == 0) {
     } else {
+            printf("mess = %s \n",command);
         char **parsCommandMessage = mx_strsplit(command, '|');
+            printf("mess = %s \n",parsCommandMessage[4]);
         if (strcmp(parsCommandMessage[0], COMMAND_NOTIFY_SERVER_NEW_MESSAGE) == 0) {
             char *login = parsCommandMessage[1];
             long time = atol(parsCommandMessage[2]);
-            bool edit = atoi(parsCommandMessage[3]);
-            char *message = parsCommandMessage[4];
+            bool edit = false;
+            char *message = parsCommandMessage[3];
+            printf("mess = %s \n",message);
             char *sTime = mx_strnew( 26);
             ctime_r(&time, sTime);
             new_messageClient(login,message,sTime,edit);
