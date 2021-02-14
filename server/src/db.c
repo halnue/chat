@@ -138,6 +138,7 @@ static int callbackMessage(void *data, int argc, char **argv, char **azColName){
     char *buffer = mx_strnew(size);
     sprintf(buffer, "%s|%s|%s|%s|%s", COMMAND_RESPONSE_SERVER_MESSAGE_LOAD_MESSAGE, argv[0],argv[1],argv[2],argv[3]);
     printf(buffer, "%s|%s|%s|%s|%s\n", COMMAND_RESPONSE_SERVER_MESSAGE_LOAD_MESSAGE, argv[0],argv[1],argv[2],argv[3]);
+    printf("\n");
     send(*userSocket, buffer,  size, 0);
     return argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
 }

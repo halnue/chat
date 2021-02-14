@@ -70,7 +70,6 @@ void runCommandServer(char *command) {
             response_register_error(parsCommand[1], parsCommand[2]);
         }
     } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_LOGIN) == 0) {
-//        printf("else if = %s\n", parsCommand[1]);
         if (strcmp(parsCommand[1], RESPONSE_200) == 0) {
 //            printf("code 200 = %s\n", parsCommand[2]);
 
@@ -80,31 +79,27 @@ void runCommandServer(char *command) {
         }
     } else if (strcmp(parsCommand[0], COMMAND_NOTIFY_SERVER_NEW_MESSAGE) == 0) {
         char **parsCommandMessage = mx_strsplit(command, '|');
-//        printf(" COMMAND_NOTIFY_SERVER_NEW_MESSAGE %s %s %s\n", parsCommandMessage[1], parsCommandMessage[2], parsCommandMessage[3]);
-        time_t t = atol(parsCommandMessage[2]);
-        char *sTime = mx_strnew(26);
-//        printf("code 100 = %s\n", parsCommandMessage[2]);
-        ctime_r(&t, sTime);
-        new_messageClient(parsCommandMessage[1], parsCommandMessage[3], sTime);
+        char *login = parsCommandMessage[1];
+        long time = atol(parsCommandMessage[2]);
+        bool edit = atoi(parsCommandMessage[3]);
+        char *message = parsCommandMessage[4];
+        char *sTime = mx_strnew( 26);
+        ctime_r(&time, sTime);
+        new_messageClient(login,message,sTime,edit);
 //        response_login_error(parsCommand[1], parsCommand[2]);
     } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_MESSAGE) == 0) {
-//        char **parsCommandMessage = mx_strsplit(command,'|');
-//        printf(" COMMAND_NOTIFY_SERVER_NEW_MESSAGE %s %s %s\n", parsCommandMessage[1], parsCommandMessage[2], parsCommandMessage[3]);
-//        time_t t = atol(parsCommandMessage[2]);
-//        char *sTime = CREATE_SIZE(char, 26)
-//        printf("code 100 = %s\n", parsCommandMessage[2]);
-//        ctime_r(&t, sTime);
-//        new_messageClient(parsCommandMessage[1], parsCommandMessage[3], sTime);
     } else {
         char **parsCommandMessage = mx_strsplit(command, '|');
-//        printf(" COMMAND_NOTIFY_SERVER_NEW_MESSAGE %s %s %s\n", parsCommandMessage[1], parsCommandMessage[2], parsCommandMessage[3]);
         if (strcmp(parsCommandMessage[0], COMMAND_NOTIFY_SERVER_NEW_MESSAGE) == 0) {
-            long l = atol(parsCommandMessage[2]);
-            time_t t = l;
+            char *login = parsCommandMessage[1];
+            long time = atol(parsCommandMessage[2]);
+            bool edit = atoi(parsCommandMessage[3]);
+            char *message = parsCommandMessage[4];
             char *sTime = mx_strnew( 26);
-//            printf("code 100 = %s\n", parsCommandMessage[2]);
-            ctime_r(&t, sTime);
-            new_messageClient(parsCommandMessage[1], parsCommandMessage[3], sTime);
+            ctime_r(&time, sTime);
+            new_messageClient(login,message,sTime,edit);
+            free(login);
+            free(message);
         } else if (strcmp(parsCommandMessage[0], COMMAND_RESPONSE_SERVER_MESSAGE_LOAD_MESSAGE) == 0){
             char *login = parsCommandMessage[1];
             long time = atol(parsCommandMessage[2]);
@@ -112,9 +107,10 @@ void runCommandServer(char *command) {
             char *message = parsCommandMessage[4];
             char *sTime = mx_strnew( 26);
             ctime_r(&time, sTime);
-            new_messageClient(login,message,sTime);
+            new_messageClient(login,message,sTime,edit);
             mx_push_back(getListMessages(),mx_create_node(create_s_message(login,time,edit,message)));
             printf("\nmessage added\n");
+
         }else {}
 //        printf("Unknown command %s\n", parsCommandMessage[0]);
     }

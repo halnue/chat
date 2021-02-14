@@ -67,7 +67,7 @@ char *recv_socked(int socked) {
 void
 runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli) {
     printf("\n%s\n", command);
-    char *str = mx_strnew( mx_arrlen(&command));
+    char *str = mx_strnew( mx_strlen(command));
     mx_strcpy(str, command);
 
     char **parsCommand = mx_strsplit(str,' ');

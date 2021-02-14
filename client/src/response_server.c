@@ -23,7 +23,7 @@ void response_register_error(char *code, char *message) {
     printf("\033[31m /uchat: user registration was failed: %s\n\033[0m", message);
 }
 
-void new_messageClient(char *userName, char *message, char *time) {
+void new_messageClient(char *userName, char *message, char *time,bool edit) {
     printf("%s > %s\n", userName, message);
-    printf("\033[34m   %s\033[0m",time);
+    printf("\033[34m   %s%d\033[0m",time,edit);
 }

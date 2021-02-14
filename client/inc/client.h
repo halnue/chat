@@ -53,6 +53,12 @@ void response_login_ok(char *login);
 void response_login_error(char *code,char *message);
 void response_register_ok(char *login);
 void response_register_error(char *code,char *message);
-void new_messageClient(char *userName,char *message,char *time);
+void new_messageClient(char *userName, char *message, char *time,bool edit);
 
 #endif //OWN_UCHAT_CLIENT_H
+// todo system("clear")
+
+
+
+
+

@@ -111,9 +111,11 @@ void *recv_msg_handler() {
     while (1) {
         char *message = mx_strnew(LENGTH);
         int receive = recv(sockfd, message, LENGTH, 0);
+        printf("receive = %d\n",receive);
 //        printf("message :%s \n recv: %d", message,receive);
         if (receive > 0) {
             printf("recv_msg_handler = %s\n", message);
+            printf("recv_msg_handler = %d\n", mx_strlen(message));
             str_overwrite_stdout();
             runCommandServer(message);
         } else if (receive == 0) {
