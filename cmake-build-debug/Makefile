@@ -197,6 +197,33 @@ client/src/command_controler.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/command_controler.c.s
 .PHONY : client/src/command_controler.c.s
 
+client/src/create_struct.o: client/src/create_struct.c.o
+
+.PHONY : client/src/create_struct.o
+
+# target to build an object file
+client/src/create_struct.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/create_struct.c.o
+.PHONY : client/src/create_struct.c.o
+
+client/src/create_struct.i: client/src/create_struct.c.i
+
+.PHONY : client/src/create_struct.i
+
+# target to preprocess a source file
+client/src/create_struct.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/create_struct.c.i
+.PHONY : client/src/create_struct.c.i
+
+client/src/create_struct.s: client/src/create_struct.c.s
+
+.PHONY : client/src/create_struct.s
+
+# target to generate assembly for a file
+client/src/create_struct.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/own_uchat.dir/build.make CMakeFiles/own_uchat.dir/client/src/create_struct.c.s
+.PHONY : client/src/create_struct.c.s
+
 client/src/printer.o: client/src/printer.c.o
 
 .PHONY : client/src/printer.o
@@ -563,6 +590,9 @@ help:
 	@echo "... client/src/command_controler.o"
 	@echo "... client/src/command_controler.i"
 	@echo "... client/src/command_controler.s"
+	@echo "... client/src/create_struct.o"
+	@echo "... client/src/create_struct.i"
+	@echo "... client/src/create_struct.s"
 	@echo "... client/src/printer.o"
 	@echo "... client/src/printer.i"
 	@echo "... client/src/printer.s"

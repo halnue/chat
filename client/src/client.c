@@ -1,5 +1,9 @@
 #include "../inc/client.h"
 
+t_list *listMessages;
+t_list **getListMessages(){
+    return &listMessages;
+}
 bool isLogin = false;
 void setIsLogin(bool f){
     isLogin = f;
@@ -22,7 +26,7 @@ bool isCommand(char *string) {
 // Global variables
 volatile sig_atomic_t flag = 0;
 int sockfd = 0;
-char name[32];
+//char name[32];
 
 
 
@@ -75,7 +79,7 @@ void *send_msg_handler() {
 //    send(sockfd, tmp, strlen(tmp), 0);
 
     while (1) {
-        char *message = CREATE_SIZE(char ,LENGTH);
+        char *message = mx_strnew(LENGTH);
 
 //        bzero(message, LENGTH);
         str_overwrite_stdout();
@@ -103,12 +107,13 @@ void *send_msg_handler() {
 }
 
 void *recv_msg_handler() {
-    char message[LENGTH];
+    // char message[LENGTH];
     while (1) {
+        char *message = mx_strnew(LENGTH);
         int receive = recv(sockfd, message, LENGTH, 0);
 //        printf("message :%s \n recv: %d", message,receive);
         if (receive > 0) {
-            printf("recv_msg_handler = %s", message);
+            printf("recv_msg_handler = %s\n", message);
             str_overwrite_stdout();
             runCommandServer(message);
         } else if (receive == 0) {
@@ -116,7 +121,8 @@ void *recv_msg_handler() {
         } else {
             // -1
         }
-        memset(message, 0, sizeof(message));
+        // memset(message, 0, sizeof(message));
+        free(message);
     }
 
     return NULL;
@@ -176,7 +182,7 @@ int main() {
         printf("ERROR: pthread\n");
         return EXIT_FAILURE;
     }
-
+    loadAllMessages(sockfd);
     while (1) {
         if (flag) {
             printf("\nBye\n");

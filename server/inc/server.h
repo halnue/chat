@@ -19,7 +19,7 @@
 #include "api_db.h"
 
 #define MAX_CLIENTS 100
-#define BUFFER_SZ 2048
+#define BUFFER_SZ 3076
 
 
 
@@ -39,6 +39,8 @@ bool sqlTransactionCall(char *sql,pthread_mutex_t mutex,int (*callback)(void*,in
 void command_login(char *login, char *password, client_t *cli, pthread_mutex_t mutex);
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex);
 void command_delete(pthread_mutex_t mutex);
+void command_send_all_message(int userSocket, pthread_mutex_t mutex);
+void command_send_last_message(int userSocket,char *time, pthread_mutex_t mutex);
 void command_edit(char *message, pthread_mutex_t mutex);
 void command_message(char *message, client_t *cli, pthread_mutex_t mutex);
 

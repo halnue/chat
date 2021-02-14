@@ -87,6 +87,9 @@
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/command_controler.c">
 			<Option target="own_uchat"/>
 		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/create_struct.c">
+			<Option target="own_uchat"/>
+		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/printer.c">
 			<Option target="own_uchat"/>
 		</Unit>

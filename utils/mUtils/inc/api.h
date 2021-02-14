@@ -17,9 +17,13 @@
 #define COMMAND_CLIENT_MESSAGE "/message "
 #define COMMAND_CLIENT_EDIT "/edit"
 #define COMMAND_CLIENT_DEL "/delete"
+#define COMMAND_CLIENT_LOAD_MESSAGES "/load_messages"
+#define COMMAND_CLIENT_LOAD_ALL_MESSAGES "/load_all_messages"
 #define COMMAND_RESPONSE_SERVER_LOGIN "/login"
 #define COMMAND_RESPONSE_SERVER_REGISTER "/register"
 #define COMMAND_RESPONSE_SERVER_MESSAGE "/message"
+#define COMMAND_RESPONSE_SERVER_LOAD_MESSAGES "/load_list_messages"
+#define COMMAND_RESPONSE_SERVER_MESSAGE_LOAD_MESSAGE "/load_message"
 #define COMMAND_NOTIFY_SERVER_NEW_MESSAGE "/new_message"
 
 #define RESPONSE_100 "100"

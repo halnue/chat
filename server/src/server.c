@@ -155,7 +155,7 @@ void *handle_client(void *arg) {
         if (leave_flag) {
             break;
         }
-        char *buff_out = CREATE_SIZE(char ,BUFFER_SZ);
+        char *buff_out = mx_strnew(BUFFER_SZ);
 
         int receive = recv(cli->sockfd, buff_out, BUFFER_SZ, 0);
 //        printf("%s\n", buff_out);

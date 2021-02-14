@@ -18,6 +18,7 @@
 #define GET_MESSAGE_MAX_ID "SELECT message,max(id) FROM Messages"
 #define DELETE_MESSAGE_MAX_ID "DELETE FROM Messages WHERE id = (SELECT MAX(id) FROM Messages)"
 #define EDIT_MESSAGE_MAX_ID "DELETE FROM Messages WHERE id = (SELECT MAX(id) FROM Messages)"
+#define GET_ALL_MESSAGE "SELECT login, time, edit,message FROM Messages JOIN Users ON idUser=Users.id  ORDER BY time"
 #define DB "Massager"
 
 sqlite3 *openDB(char *nameDB);
@@ -30,6 +31,7 @@ char *insertMessageSQL(Message *msg);//INSERT INTO Messages(id, idUser, Message,
 char *updateMessage(int id,char *newMessage);//UPDATE Messages set edit = true,Message = 'Hello, Ucode! I can edit.'where id = 0
 char *updateMessageMaxId(char *newMessage);
 char *updatePassword(int id,char *newPassword);//UPDATE Users set password = '321' where id = 0
+char *getLastMessage(char *time);
 char *deleteMessage(int id); // DELETE from Messages where id = 0
 char *getPasswordSQL(char *login);
 
@@ -42,4 +44,5 @@ int createNewIdMassage();
 // message server
 char *new_message(char *action, char *code, char *message);
 char *notify_message(char *action, char *userName, char *message,long time);
+void message_join_user(char *name,int sockfd);
 #endif //OWN_UCHAT_API_DB_H

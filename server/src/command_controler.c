@@ -8,13 +8,13 @@ void print(char *string) {
     printf("%s\n", string);
 }
 
-bool isSpace(char ch) {
-    char *arr = " \n\t\v\r\f";
-    for (int i = 0; arr[i] != '\0'; ++i) {
-        if (ch == arr[i]) return true;
-    }
-    return false;
-}
+//bool isSpace(char ch) {
+//    char *arr = " \n\t\v\r\f";
+//    for (int i = 0; arr[i] != '\0'; ++i) {
+//        if (ch == arr[i]) return true;
+//    }
+//    return false;
+//}
 
 //char **toCommandWithArgWithoutStrtok(char *command) {
 //    char *fullString = command;
@@ -64,9 +64,10 @@ char *recv_socked(int socked) {
     return buff;
 }
 
-void runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli) {
-    printf("%s\n", command);
-    char *str = CREATE_SIZE(char, mx_arrlen(&command));
+void
+runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli) {
+    printf("\n%s\n", command);
+    char *str = mx_strnew( mx_arrlen(&command));
     mx_strcpy(str, command);
 
     char **parsCommand = mx_strsplit(str,' ');
@@ -81,6 +82,12 @@ void runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli)
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_EDIT) == 0) {
         printf("command_edit");
         command_edit(parsCommand[1],mutex);
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOAD_ALL_MESSAGES) == 0) {
+        printf("load all messages");
+        command_send_all_message(cli->sockfd,mutex);
+    } else if (strcmp(parsCommand[0], COMMAND_CLIENT_LOAD_MESSAGES) == 0) {
+        printf("command_delete");
+        command_send_last_message(cli->sockfd,parsCommand[1],mutex);
     } else if (strcmp(parsCommand[0], COMMAND_CLIENT_DEL) == 0) {
         printf("command_delete");
         command_delete(mutex);
@@ -96,7 +103,7 @@ void runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli)
             command_message(parsCommandMessage[1], cli, mutex);
             printf("else COMMAND_CLIENT_MESSAGE %s\n", command);
         } else
-        printf("Unknown command %s", parsCommand[0]);
+        printf("Unknown command %s\n", parsCommand[0]);
     }
     print("fin");
 }

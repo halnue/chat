@@ -4,6 +4,7 @@
 #include "../inc/server.h"
 
 static int callbackLogin(void *data, int argc, char **argv, char **azColName);
+static int callbackMessage(void *data, int argc, char **argv, char **azColName);
 //static int callbackMessageMaxIdDel(void *data, int argc, char **argv, char **azColName);
 //static int callbackMessageMaxIdEdit(void *data, int argc, char **argv, char **azColName);
 
@@ -53,6 +54,16 @@ void command_edit(char *message, pthread_mutex_t mutex) {
 
 void command_delete(pthread_mutex_t mutex) {
     sqlTransaction(DELETE_MESSAGE_MAX_ID, mutex);
+}
+
+void command_send_all_message(int userSocket, pthread_mutex_t mutex){
+    void *data = &userSocket;
+    sqlTransactionCall(GET_ALL_MESSAGE, mutex, callbackMessage, data);
+}
+void command_send_last_message(int userSocket,char *time, pthread_mutex_t mutex){
+    void *data = &userSocket;
+    char *sql = getLastMessage(time);
+    sqlTransactionCall(sql, mutex, callbackMessage, data);
 }
 
 void command_register(char *login, char *password, int userSocket, pthread_mutex_t mutex) {
@@ -113,10 +124,21 @@ static int callbackLogin(void *data, int argc, char **argv, char **azColName) {
     } else if (mx_strcmp(argv[0], password) == 0) {
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_200, login), cli->sockfd);
         cli->uid = atoi(argv[1]);
+        message_join_user(cli->name,cli->sockfd);
     } else {
         cli->name = "guest";
         send_command(new_message(COMMAND_RESPONSE_SERVER_LOGIN, RESPONSE_412, "Invalid password"), cli->sockfd);
     }
+    return argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
+}
+
+static int callbackMessage(void *data, int argc, char **argv, char **azColName){
+    int *userSocket = data;
+    int size =  20+11+1+ 512;
+    char *buffer = mx_strnew(size);
+    sprintf(buffer, "%s|%s|%s|%s|%s", COMMAND_RESPONSE_SERVER_MESSAGE_LOAD_MESSAGE, argv[0],argv[1],argv[2],argv[3]);
+    printf(buffer, "%s|%s|%s|%s|%s\n", COMMAND_RESPONSE_SERVER_MESSAGE_LOAD_MESSAGE, argv[0],argv[1],argv[2],argv[3]);
+    send(*userSocket, buffer,  size, 0);
     return argc - argc + mx_strlen(azColName[0] ? "" : "0") - mx_strlen(azColName[0] ? "" : "0");
 }
 //
