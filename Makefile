@@ -1,5 +1,5 @@
-CD = client
-SD = server
+CD = uclient
+SD = userver
 all: install
 install: 
 	@make copy -C $(CD)
@@ -9,7 +9,7 @@ clean:
 	@make clean -C $(SD)
 uninstall: clean
 	@make uninstall -C $(CD)
-	@rm -f uchat
+	@rm -f client
 	@make uninstall -C $(SD)
-	@rm -f uchat_server
+	@rm -f server
 reinstall: uninstall all

@@ -78,58 +78,58 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/inc/client.h">
-			<Option target="own_uchat"/>
-		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/client.c">
-			<Option target="own_uchat"/>
-		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/command_controler.c">
-			<Option target="own_uchat"/>
-		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/create_struct.c">
-			<Option target="own_uchat"/>
-		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/printer.c">
-			<Option target="own_uchat"/>
-		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/response_server.c">
-			<Option target="own_uchat"/>
-		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/client/src/string_api.c">
-			<Option target="own_uchat"/>
-		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/main.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/inc/api_db.h">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/uclient/inc/client.h">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/inc/server.h">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/uclient/src/client.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/command_controler.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/uclient/src/command_controler.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/db.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/uclient/src/create_struct.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/dbRequest.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/uclient/src/printer.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/get_request_SQL.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/uclient/src/response_server.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/openDB.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/uclient/src/string_api.c">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/response_server.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/inc/api_db.h">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/server.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/inc/server.h">
 			<Option target="own_uchat"/>
 		</Unit>
-		<Unit filename="/Users/mburenko/Documents/own_uchat/server/src/work_struct.c">
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/command_controler.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/db.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/dbRequest.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/get_request_SQL.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/openDB.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/response_server.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/server.c">
+			<Option target="own_uchat"/>
+		</Unit>
+		<Unit filename="/Users/mburenko/Documents/own_uchat/userver/src/work_struct.c">
 			<Option target="own_uchat"/>
 		</Unit>
 		<Unit filename="/Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h">

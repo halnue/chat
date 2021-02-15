@@ -33,10 +33,12 @@ pthread.h
 /Users/mburenko/Documents/own_uchat/utils/mUtils/inc/api.h
 
 /Users/mburenko/Documents/own_uchat/client/src/client.c
+semaphore.h
+-
 ../inc/client.h
 /Users/mburenko/Documents/own_uchat/client/inc/client.h
-regex.h
-/Users/mburenko/Documents/own_uchat/client/src/regex.h
+../../server/inc/server.h
+/Users/mburenko/Documents/own_uchat/server/inc/server.h
 
 /Users/mburenko/Documents/own_uchat/client/src/command_controler.c
 ../inc/client.h
@@ -44,7 +46,15 @@ regex.h
 regex.h
 /Users/mburenko/Documents/own_uchat/client/src/regex.h
 
+/Users/mburenko/Documents/own_uchat/client/src/create_struct.c
+../inc/client.h
+/Users/mburenko/Documents/own_uchat/client/inc/client.h
+
 /Users/mburenko/Documents/own_uchat/client/src/printer.c
+../inc/client.h
+/Users/mburenko/Documents/own_uchat/client/inc/client.h
+
+/Users/mburenko/Documents/own_uchat/client/src/response_server.c
 ../inc/client.h
 /Users/mburenko/Documents/own_uchat/client/inc/client.h
 
@@ -111,6 +121,14 @@ stdio.h
 /Users/mburenko/Documents/own_uchat/server/src/openDB.c
 ../inc/api_db.h
 /Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+
+/Users/mburenko/Documents/own_uchat/server/src/response_server.c
+stdio.h
+-
+../inc/api_db.h
+/Users/mburenko/Documents/own_uchat/server/inc/api_db.h
+../inc/server.h
+/Users/mburenko/Documents/own_uchat/server/inc/server.h
 
 /Users/mburenko/Documents/own_uchat/server/src/server.c
 ../inc/server.h

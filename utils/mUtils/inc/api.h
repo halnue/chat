@@ -17,6 +17,8 @@
 #define COMMAND_CLIENT_MESSAGE "/message "
 #define COMMAND_CLIENT_EDIT "/edit"
 #define COMMAND_CLIENT_DEL "/delete"
+#define COMMAND_CLIENT_EDIT_U "/edit_q"
+#define COMMAND_CLIENT_DEL_U "/delete_q"
 #define COMMAND_CLIENT_LOAD_MESSAGES "/load_messages"
 #define COMMAND_CLIENT_LOAD_ALL_MESSAGES "/load_all_messages"
 #define COMMAND_RESPONSE_SERVER_LOGIN "/login"
