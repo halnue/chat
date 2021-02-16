@@ -1,14 +1,32 @@
 #include <semaphore.h>
+#include <curses.h>
 #include "../inc/client.h"
 #include "../../userver/inc/server.h"
+//#include <stdio.h>
+//#include <stdlib.h>
+#include <readline/history.h>
 
 t_list *listMessages;
+
+
+
+
+
+
+
+
+
+
+
+
+// todo
 
 t_list **getListMessages() {
     return &listMessages;
 }
 
 bool isLogin = false;
+//t_list *list;
 
 void setIsLogin(bool f) {
     isLogin = f;
@@ -77,11 +95,20 @@ char **toCommandWithArg(char *command) {
     return res;
 }
 
+//void *send_getch_handler() {
+//    char c = wgetch();
+////    if (c == (char) KEY_UP) {
+//        printf("key up%c\n",c);
+////    }
+//    return NULL;
+//}
+
 void *send_msg_handler() {
 //    char buffer[LENGTH + 32];
 
 //    char *tmp = "/login user 123";
-mx_print_unicode(0x128512);printf("\n");
+    mx_print_unicode(0x128512);
+    printf("\n");
 //    send(sockfd, tmp, strlen(tmp), 0);
 
     while (1) {
@@ -91,7 +118,8 @@ mx_print_unicode(0x128512);printf("\n");
         str_overwrite_stdout();
         fgets(message, LENGTH, stdin);
         str_trim_lf(message, LENGTH);
-
+//        mx_push_back(list, message);
+//        add_history(message);
         if (isCommand(message)) {
             reconnect(sockfd);
 //            printArr(toCommandWithArg(message));
@@ -139,7 +167,10 @@ void *recv_msg_handler() {
                 str_overwrite_stdout();
                 runCommandServer(message);
 //                printf("\n%d\n", i);}
-            } else printf("%s",message);
+            } else {
+                printf("%s", message);
+                str_overwrite_stdout();
+            }
 //            }
         } else if (receive == 0) {
             break;
@@ -201,6 +232,11 @@ int main() {
         printf("ERROR: pthread\n");
         return EXIT_FAILURE;
     }
+//    pthread_t send_getch_thread;
+//    if (pthread_create(&send_getch_thread, NULL, &send_getch_handler, NULL) != 0) {
+//        printf("ERROR: pthread\n");
+//        return EXIT_FAILURE;
+//    }
 
     pthread_t recv_msg_thread;
     if (pthread_create(&recv_msg_thread, NULL, &recv_msg_handler, NULL) != 0) {

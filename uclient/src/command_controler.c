@@ -5,6 +5,7 @@
 #include "regex.h"
 
 void loadAllMessages(int sockfd) {
+    printf("\033c");
     send(sockfd, COMMAND_CLIENT_LOAD_ALL_MESSAGES, strlen(COMMAND_CLIENT_LOAD_ALL_MESSAGES), 0);
 }
 
@@ -90,14 +91,14 @@ void runCommandServer(char *command) {
 
     char *str = mx_strnew(mx_arrlen(&command));
     mx_strcpy(str, command);
-    sout("1");
+//    sout("1");
     sout(command)
 //    printf("runCommandServer00\n");
     bool f = mx_strchr(command, '|');
-    printf("f = %d\n", f);
+//    printf("f = %d\n", f);
     if (!f) {
         char **parsCommand = mx_strsplit(str, ' ');
-        sout("2");
+//        sout("2");
 //    toCommandWithArg1(str);
 //    printf("0 =  %s %s %s\n", parsCommand[1], parsCommand[2], parsCommand[3]);
 //    printf("runCommandServer = %s\n", parsCommand[0]);
@@ -126,17 +127,20 @@ void runCommandServer(char *command) {
             new_messageClient(login, message, sTime, edit);
 //        response_login_error(parsCommand[1], parsCommand[2]);
         } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_MESSAGE) == 0) {
-        } else printf("Unknown command %s\n", parsCommand[0]);
+        } else {
+            printf("Unknown command %s\n", parsCommand[0]);
+            str_overwrite_stdout();
+        }
     } else {
-        printf("else mess = %s \n", str);
+//        printf("else mess = %s \n", str);
         char **parsCommandMessage = mx_strsplit(str, '|');
-        printf("mess = %s \n", parsCommandMessage[4]);
+//        printf("mess = %s \n", parsCommandMessage[4]);
         if (strcmp(parsCommandMessage[0], COMMAND_NOTIFY_SERVER_NEW_MESSAGE) == 0) {
             char *login = parsCommandMessage[1];
             long time = atol(parsCommandMessage[2]);
             bool edit = false;
             char *message = parsCommandMessage[3];
-            printf("mess = %s \n", message);
+//            printf("mess = %s \n", message);
             char *sTime = mx_strnew(26);
             ctime_r(&time, sTime);
             new_messageClient(login, message, sTime, edit);
@@ -151,13 +155,14 @@ void runCommandServer(char *command) {
             ctime_r(&time, sTime);
             new_messageClient(login, message, sTime, edit);
 //            mx_push_back(getListMessages(), mx_create_node(create_s_message(login, time, edit, message)));
-            printf("\nmessage added\n");
+//            printf("\nmessage added\n");
 
         } else
             printf("Unknown command %s\n", parsCommandMessage[0]);
+        str_overwrite_stdout();
 //        free(parsCommandMessage);
     }
-    str_overwrite_stdout();
+
 }
 
 //void sendMessage(char *command, char *arg, int cSocket) {
