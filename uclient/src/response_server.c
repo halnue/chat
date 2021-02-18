@@ -33,5 +33,5 @@ void new_messageClient(char *userName, char *message, char *time,bool edit) {
     else
     printf("%s > %s\n", userName, message);
     printf("\033[34m   %s\033[0m",time);
-    str_overwrite_stdout();
+//    str_overwrite_stdout();
 }

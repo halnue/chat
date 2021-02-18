@@ -21,9 +21,9 @@ void runCommandClientMessage(char *message, int socket) {
 //    FOR(0,i/SIZE_MESSAGE){
     char *buffer = mx_strnew(strlen(message) + 9);
     sprintf(buffer, "%s|%s", COMMAND_CLIENT_MESSAGE, message);
-    printf("sending");
+//    printf("sending");
     send(socket, buffer, strlen(buffer), 0);
-    printf("is send data");
+//    printf("is send data");
     return;
 //    }
 }
@@ -92,7 +92,7 @@ void runCommandServer(char *command) {
     char *str = mx_strnew(mx_arrlen(&command));
     mx_strcpy(str, command);
 //    sout("1");
-    sout(command)
+//    sout(command)
 //    printf("runCommandServer00\n");
     bool f = mx_strchr(command, '|');
 //    printf("f = %d\n", f);
@@ -129,7 +129,7 @@ void runCommandServer(char *command) {
         } else if (strcmp(parsCommand[0], COMMAND_RESPONSE_SERVER_MESSAGE) == 0) {
         } else {
             printf("Unknown command %s\n", parsCommand[0]);
-            str_overwrite_stdout();
+//            str_overwrite_stdout();
         }
     } else {
 //        printf("else mess = %s \n", str);
@@ -159,7 +159,7 @@ void runCommandServer(char *command) {
 
         } else
             printf("Unknown command %s\n", parsCommandMessage[0]);
-        str_overwrite_stdout();
+//        str_overwrite_stdout();
 //        free(parsCommandMessage);
     }
 

@@ -70,6 +70,7 @@ runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli) {
     char *str = mx_strnew( mx_strlen(command));
     mx_strcpy(str, command);
     bool f = mx_strchr(command, '|');
+
     if (f) {
         char **parsCommand = mx_strsplit(str, '|');
         if (strcmp(parsCommand[0], COMMAND_CLIENT_EDIT_U) == 0) {
@@ -78,11 +79,14 @@ runCommand(char *command, int socked, pthread_mutex_t mutex, client_t *cli) {
         }else if (strcmp(parsCommand[0], COMMAND_CLIENT_DEL_U) == 0) {
 //       todo printf("command_delete");
             command_delete_u(mutex, atoi(parsCommand[1]));
+        }if (strcmp(parsCommand[0], COMMAND_CLIENT_MESSAGE) == 0) {
+            command_message(parsCommand[1], cli, mutex);
+            printf("else COMMAND_CLIENT_MESSAGE %s\n", command);
         }
     } else {
         char **parsCommand = mx_strsplit(str, ' ');
 //            toCommandWithArg(str);
-//    printf("command = %s, [1]= %s, [2]= %s\n", parsCommand[0], parsCommand[1], parsCommand[2]);
+    printf("command = %s\n", parsCommand[0]);
         if (strcmp(parsCommand[0], COMMAND_CLIENT_REGISTER) == 0) {
             printf("COMMAND_CLIENT_REGISTER %s\n", command);
             command_register(parsCommand[1], parsCommand[2], socked, mutex);

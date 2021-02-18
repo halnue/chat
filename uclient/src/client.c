@@ -110,7 +110,7 @@ void *send_msg_handler() {
     mx_print_unicode(0x128512);
     printf("\n");
 //    send(sockfd, tmp, strlen(tmp), 0);
-
+CREATE_SIZE()
     while (1) {
         char *message = mx_strnew(LENGTH);
 
@@ -121,7 +121,7 @@ void *send_msg_handler() {
 //        mx_push_back(list, message);
 //        add_history(message);
         if (isCommand(message)) {
-            reconnect(sockfd);
+//            reconnect(sockfd);
 //            printArr(toCommandWithArg(message));
             if (isCommandExit(message)) {
                 break;
@@ -164,8 +164,8 @@ void *recv_msg_handler() {
             if (isCommand(message)) {
 //                printf("recv_msg_handler = \"%s\"\n", message);
 //                printf("recv_msg_handler = %d\n", mx_strlen(parsCommand[i]));
-                str_overwrite_stdout();
                 runCommandServer(message);
+
 //                printf("\n%d\n", i);}
             } else {
                 printf("%s", message);
